@@ -48,6 +48,6 @@ class BadgeGenerator
         $badge = str_replace('$cov$', $formattedCoverage, $template);
         $badge = str_replace('$color$', $color, $badge);
 
-        file_put_contents($this->badgePath, $badge);
+        file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . '../' . $this->badgePath, $badge);
     }
 }
