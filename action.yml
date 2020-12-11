@@ -37,7 +37,7 @@ inputs:
     required: false
     default: '.github/badge/coverage_badge.svg'
   repo_token:
-    description: 'Token to push the badge into the repository. Can be supplied with ${{ secrets.GITHUB_TOKEN}}'
+    description: 'Token to push the badge into the repository. Can be supplied with $/{{ secrets.GITHUB_TOKEN}} (without the "/")'
     required: true
   commit_message:
     description: 'Commit message that will be used to commit the badge'
