@@ -34,11 +34,12 @@ class CoverageReportParser
      */
     private function getReportMetrics(): SimpleXMLElement
     {
-        if (!file_exists($this->coverageReportPath)) {
+        $fileName = __DIR__ . DIRECTORY_SEPARATOR .  '..' . DIRECTORY_SEPARATOR . $this->coverageReportPath;
+        if (!file_exists($fileName)) {
             throw new InvalidArgumentException('Coverage clover file could not be found');
         }
 
-        $xmlElement = new SimpleXMLElement(file_get_contents($this->coverageReportPath));
+        $xmlElement = new SimpleXMLElement(file_get_contents($fileName));
         $reportMetrics = $xmlElement->xPath('project/metrics')[0] ?? null;
 
         if ($reportMetrics === null) {

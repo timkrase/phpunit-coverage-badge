@@ -2,8 +2,6 @@
 
 namespace PhpUnitCoverageBadge;
 
-use JetBrains\PhpStorm\Pure;
-
 class BadgeGenerator
 {
     const COLORS = [
@@ -45,7 +43,7 @@ class BadgeGenerator
 
     public function saveBadge(string $formattedCoverage, string $color)
     {
-        $template = file_get_contents('../template.svg');
+        $template = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '../template.svg');
 
         $badge = str_replace('$cov$', $formattedCoverage, $template);
         $badge = str_replace('$color$', $color, $badge);
