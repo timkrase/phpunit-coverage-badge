@@ -21,4 +21,4 @@ $codeCoverage = $coverageParser->getCodeCoverage();
 $badgeGenerator = new \PhpUnitCoverageBadge\BadgeGenerator($badgePath);
 $badgeGenerator->generateBadge($codeCoverage);
 
-exec(__DIR__ . '/commit_push_badge.sh');
+exec('sudo ' . __DIR__ . '/commit_push_badge.sh');
