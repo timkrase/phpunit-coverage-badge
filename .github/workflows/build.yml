@@ -32,7 +32,7 @@ jobs:
         run: composer install --prefer-dist
 
       - name: Run Unit Tests
-        run: XDEBUG_MODE=coverage /vendor/bin/phpunit
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit
 
       - name: Generate test coverage badge
         uses: ./
