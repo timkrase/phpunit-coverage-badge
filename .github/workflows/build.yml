@@ -17,10 +17,19 @@ jobs:
           php-version: '7.4'
           extensions:  simplexml, dom, xml, xdebug
 
-      - name: Install composer
-        uses: php-actions/composer@v4
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          progress: yes
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist
 
       - name: Run Unit Tests
         run: XDEBUG_MODE=coverage /vendor/bin/phpunit
