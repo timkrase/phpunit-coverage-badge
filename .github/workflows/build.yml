@@ -1,0 +1,33 @@
+name: PhpUnit Coverage Badge
+
+on: push
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@2.9.0
+        with:
+          php-version: '7.4'
+          extensions:  simplexml, dom, xml, xdebug
+
+      - name: Install composer
+        uses: php-actions/composer@v4
+        with:
+          progress: yes
+
+      - name: Run Unit Tests
+        run: XDEBUG_MODE=coverage /vendor/bin/phpunit
+
+      - name: Generate test coverage badge
+        uses: ./
+        with:
+          clover_report: 'clover.xml'
+          coverage_badge_path: '.github/badge/badge.svg'
+          repo_token: ${{ secrets.GITHUB_TOKEN }}

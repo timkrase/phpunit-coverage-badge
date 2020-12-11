@@ -1,0 +1,23 @@
+{
+    "name": "timkrase/phpunit-coverage-badge",
+    "description": "Generates a code coverage badge from a phpunit coverage report",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim Krase",
+            "email": "timkrase@timkrase.de"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-simplexml": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpUnitCoverageBadge\\": "src/"
+        }
+    }
+}

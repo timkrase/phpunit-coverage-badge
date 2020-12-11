@@ -1,0 +1,53 @@
+# phpunit-coverage-badge: Github action for generating a phpunit coverage percentage badge
+#
+# Copyright (c) 2020 Tim Krase
+# https://timkrase.de
+#
+# MIT License
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+
+name: 'phpunit-coverage-badge'
+author: 'Tim Krase <timkrase@timkrase.de>'
+description: 'Creates a code coverage badge from phpunit reports'
+inputs:
+  clover_eport:
+    description: 'Path to the clover report file from phpunit'
+    required: false
+    default: 'clover.xml'
+  coverage_badge_path:
+    description: 'Path where the created badge should be saved'
+    required: false
+    default: '.github/badge/coverage_badge.svg'
+  repo_token:
+    description: 'Token to push the badge into the repository. Can be supplied with ${{ secrets.GITHUB_TOKEN}}'
+    required: true
+  commit_message:
+    description: 'Commit message that will be used to commit the badge'
+    required: false
+    default: 'Update code coverage badge'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.clover-report }}
+    - ${{ inputs.coverage-badge-path }}
+    - ${{ inputs.repo_token }}
+    - ${{ inputs.commit_message }}

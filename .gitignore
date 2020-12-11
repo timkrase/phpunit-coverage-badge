@@ -1,0 +1,5 @@
+vendor
+.phpunit.result.cache
+.phpunit.cache
+html
+.idea
