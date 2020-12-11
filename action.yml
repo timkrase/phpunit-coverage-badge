@@ -28,7 +28,7 @@ name: 'phpunit-coverage-badge'
 author: 'Tim Krase <timkrase@timkrase.de>'
 description: 'Creates a code coverage badge from phpunit reports'
 inputs:
-  clover_eport:
+  clover_report:
     description: 'Path to the clover report file from phpunit'
     required: false
     default: 'clover.xml'
