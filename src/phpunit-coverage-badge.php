@@ -4,6 +4,7 @@ require(__DIR__ . DIRECTORY_SEPARATOR . '../vendor/autoload.php');
 
 $cloverFile = getenv('INPUT_CLOVER_REPORT');
 $badgePath = getenv('INPUT_COVERAGE_BADGE_PATH');
+$pushBadge = getenv('INPUT_PUSH_BADGE');
 $repoToken = getenv('INPUT_REPO_TOKEN');
 $commitMessage = getenv('INPUT_COMMIT_MESSAGE');
 
@@ -21,5 +22,7 @@ $codeCoverage = $coverageParser->getCodeCoverage();
 $badgeGenerator = new \PhpUnitCoverageBadge\BadgeGenerator($badgePath);
 $badgeGenerator->generateBadge($codeCoverage);
 
-exec('chmod +x ' . __DIR__ . '/commit_push_badge.sh');
-exec(__DIR__ . '/commit_push_badge.sh');
+if ($pushBadge) {
+    exec('chmod +x ' . __DIR__ . '/commit_push_badge.sh');
+    exec(__DIR__ . '/commit_push_badge.sh');
+}

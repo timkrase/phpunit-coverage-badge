@@ -43,3 +43,4 @@ jobs:
           clover_report: 'clover.xml'
           coverage_badge_path: 'badge.svg'
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+          push_badge: false
