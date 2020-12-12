@@ -15,12 +15,21 @@ class CoverageReportParser
         $this->coverageReportPath = $coverageReportPath;
     }
 
+    /**
+     * Calculates and returns the coverage number as an integer
+     *
+     * @return float
+     * @throws Exception
+     */
     public function getCodeCoverage(): float
     {
         $reportMetrics = $this->getReportMetrics();
 
         $coveredElements = (int) $reportMetrics['coveredelements'];
         $elements = (int) $reportMetrics['elements'];
+
+        //Prevent divide by zero errors
+        $elements = $elements === 0 ? 1 : $elements;
 
         return ($coveredElements / $elements) * 100;
     }
@@ -36,7 +45,7 @@ class CoverageReportParser
     {
         $fileName = __DIR__ . DIRECTORY_SEPARATOR .  '..' . DIRECTORY_SEPARATOR . $this->coverageReportPath;
         if (!file_exists($fileName)) {
-            throw new InvalidArgumentException('Coverage clover file could not be found');
+            throw new InvalidArgumentException('Coverage clover file could not be found in path ' . $fileName);
         }
 
         $xmlElement = new SimpleXMLElement(file_get_contents($fileName));
