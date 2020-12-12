@@ -12,8 +12,8 @@ if (!$cloverFile) {
     return;
 }
 
-if (!$repoToken) {
-    throw new Exception('No Github Repo token supplied. Please add it to your workflow.');
+if ($pushBadge && $repoToken === 'NOT_SUPPLIED') {
+    throw new Exception('Pushing the badge was activated but no Github Repo token has been supplied. Please add it to your workflow.');
 }
 
 $coverageParser = new \PhpUnitCoverageBadge\CoverageReportParser($cloverFile);

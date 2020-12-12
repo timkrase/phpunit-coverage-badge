@@ -39,10 +39,11 @@ inputs:
   push_badge:
     description: 'Defines whether the badge will be committed and pushed to the repository.'
     required: false
-    default: 'true'
+    default: 'false'
   repo_token:
     description: 'Token to push the badge into the repository. Can be supplied with $/{{ secrets.GITHUB_TOKEN}} (without the "/")'
-    required: true
+    required: false
+    default: 'NOT_SUPPLIED'
   commit_message:
     description: 'Commit message that will be used to commit the badge'
     required: false
