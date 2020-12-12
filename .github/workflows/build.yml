@@ -41,5 +41,5 @@ jobs:
         uses: ./
         with:
           clover_report: 'clover.xml'
-          coverage_badge_path: '.github/badge/badge.svg'
+          coverage_badge_path: 'badge.svg'
           repo_token: ${{ secrets.GITHUB_TOKEN }}
