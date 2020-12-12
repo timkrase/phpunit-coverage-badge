@@ -39,7 +39,3 @@ jobs:
 
       - name: Generate test coverage badge
         uses: ./
-        with:
-          clover_report: 'clover.xml'
-          coverage_badge_path: 'badge.svg'
-          push_badge: true
