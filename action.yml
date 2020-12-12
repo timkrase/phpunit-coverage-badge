@@ -43,6 +43,14 @@ inputs:
     description: 'Commit message that will be used to commit the badge'
     required: false
     default: 'Update code coverage badge'
+  commit_email:
+    description: 'Email to use for the commit'
+    required: false
+    default: 'phpunit-badge@timkrase.de'
+  commit_name:
+    description: 'Name for the commit'
+    required: false
+    default: 'Badge Bot'
 runs:
   using: 'docker'
   image: 'Dockerfile'
