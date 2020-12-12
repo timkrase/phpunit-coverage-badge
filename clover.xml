@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1607771628">
-  <project timestamp="1607771628">
+<coverage generated="1607775357">
+  <project timestamp="1607775357">
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/BadgeGenerator.php">
       <class name="PhpUnitCoverageBadge\BadgeGenerator" namespace="global">
         <metrics complexity="7" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="21" coveredelements="0"/>
@@ -31,27 +31,41 @@
     </file>
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/CoverageReportParser.php">
       <class name="PhpUnitCoverageBadge\CoverageReportParser" namespace="global">
-        <metrics complexity="5" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="6" elements="17" coveredelements="7"/>
+        <metrics complexity="6" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="6" elements="18" coveredelements="7"/>
       </class>
       <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="15" type="stmt" count="1"/>
       <line num="16" type="stmt" count="1"/>
-      <line num="18" type="method" name="getCodeCoverage" visibility="public" complexity="1" crap="1.42" count="1"/>
-      <line num="20" type="stmt" count="1"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="35" type="method" name="getReportMetrics" visibility="private" complexity="3" crap="5.20" count="1"/>
-      <line num="37" type="stmt" count="1"/>
-      <line num="38" type="stmt" count="1"/>
-      <line num="39" type="stmt" count="1"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="45" type="stmt" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="51" type="stmt" count="1"/>
-      <metrics loc="50" ncloc="43" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="6" elements="17" coveredelements="7"/>
+      <line num="24" type="method" name="getCodeCoverage" visibility="public" complexity="2" crap="4.05" count="1"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="44" type="method" name="getReportMetrics" visibility="private" complexity="3" crap="5.20" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="47" type="stmt" count="1"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="1"/>
+      <metrics loc="59" ncloc="46" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="6" elements="18" coveredelements="7"/>
+    </file>
+    <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/InputValidator.php">
+      <class name="PhpUnitCoverageBadge\InputValidator" namespace="global">
+        <metrics complexity="3" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
+      </class>
+      <line num="11" type="method" name="validateInputs" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <metrics loc="19" ncloc="19" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/phpunit-coverage-badge.php">
       <line num="3" type="stmt" count="0"/>
@@ -64,15 +78,15 @@
       <line num="12" type="stmt" count="0"/>
       <line num="15" type="stmt" count="0"/>
       <line num="16" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
       <line num="19" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
       <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
       <line num="25" type="stmt" count="0"/>
       <line num="26" type="stmt" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <metrics loc="28" ncloc="28" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="0" elements="17" coveredelements="0"/>
+      <metrics loc="27" ncloc="27" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="0" elements="17" coveredelements="0"/>
     </file>
-    <metrics files="3" loc="130" ncloc="123" classes="2" methods="8" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="47" coveredstatements="6" elements="55" coveredelements="7"/>
+    <metrics files="4" loc="157" ncloc="144" classes="3" methods="9" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="6" elements="62" coveredelements="7"/>
   </project>
 </coverage>
