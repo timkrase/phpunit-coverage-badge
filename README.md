@@ -54,10 +54,12 @@ Commit message that will be used to commit the updated badge and clover file.
 ### `commit_email`
 Email that will be used for the commit.
 
-**default: phpunit-badge@timkrase.de**
+**default: 41898282+github-actions[bot]@users.noreply.github.com**
+
+This will display all commits as added by the official github actions account/page.
 
 ### `commit_name`
 Name that will be used for the commit.
 
-**default: Coverage Badge Bot**
+**default: Github Actions Bot**
 

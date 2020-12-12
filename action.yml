@@ -51,7 +51,7 @@ inputs:
   commit_email:
     description: 'Email that will be used for the commit.'
     required: false
-    default: '41898282+github-actions[bot]@users.noreply.github.com>'
+    default: '41898282+github-actions[bot]@users.noreply.github.com'
   commit_name:
     description: 'Name that will be used for the commit.'
     required: false
