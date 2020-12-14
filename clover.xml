@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1607973178">
-  <project timestamp="1607973178">
+<coverage generated="1607973871">
+  <project timestamp="1607973871">
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/BadgeGenerator.php">
       <class name="PhpUnitCoverageBadge\BadgeGenerator" namespace="global">
         <metrics complexity="8" methods="5" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="8" elements="25" coveredelements="10"/>
