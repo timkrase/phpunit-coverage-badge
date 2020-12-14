@@ -23,6 +23,11 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <exclude>
+            <file>src/entry.php</file>
+            <file>src/Config.php</file>
+            <file>src/DependencyInjection/config.php</file>
+        </exclude>
         <report>
             <clover outputFile="clover.xml" />
         </report>
