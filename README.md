@@ -7,7 +7,9 @@ This badge can then also be pushed to the repository to be displayed in the READ
 An example is the badge above this text block, which shows the current test coverage of this project. 
 There is something ironic about this project showcasing its own poor test coverage.
 
-Inspired by [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator/blob/main/LICENSE) and [richardregeer/phpunit-coverage-check](https://github.com/richardregeer/phpunit-coverage-check).
+Inspired by [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) and [richardregeer/phpunit-coverage-check](https://github.com/richardregeer/phpunit-coverage-check).
+
+The template for the svg badge was created using [Method Draw](http://github.com/duopixel/Method-Draw). The color scheme for the background of the coverage percentage number has been adapted from [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator).
 
 # Configuration
 This action has no required inputs. However, probably at least the path to the Clover.xml file must be adjusted if it is not saved in the project root as clover.xml.
