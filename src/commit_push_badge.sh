@@ -7,4 +7,4 @@ git config user.name "${INPUT_COMMIT_NAME}"
 
 git commit -m "${INPUT_COMMIT_MESSAGE}"
 
-git push https://"${GITHUB_ACTOR}":"${INPUT_REPO_TOKEN}"@github.com/"${GITHUB_REPOSITORY}".git HEAD:"${GITHUB_REF##*/}";
+git push https://"${GITHUB_ACTOR}":"${INPUT_REPO_TOKEN}"@github.com/"${GITHUB_REPOSITORY}".git HEAD:"${GITHUB_REF#refs/heads/}";

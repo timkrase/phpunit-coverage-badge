@@ -21,10 +21,15 @@ class BadgeGenerator
 
     public function generateBadge(float $codeCoverage)
     {
-        $this->saveBadge(
-            $this->formatCoverageNumber($codeCoverage),
-            $color = $this->matchCoverageColor($codeCoverage)
-        );
+        $template = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '../template.svg');
+
+        $formattedCoverage = $this->formatCoverageNumber($codeCoverage);
+        $color = $this->matchCoverageColor($codeCoverage);
+
+        $badge = str_replace('$cov$', $formattedCoverage, $template);
+        $badge = str_replace('$color$', $color, $badge);
+
+        $this->saveBadge($badge);
     }
 
     private function formatCoverageNumber(float $coverage): string
@@ -41,13 +46,15 @@ class BadgeGenerator
         }
     }
 
-    public function saveBadge(string $formattedCoverage, string $color)
+    public function saveBadge(string $badge)
     {
-        $template = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '../template.svg');
+        $badgeTargetPath = __DIR__ . DIRECTORY_SEPARATOR . '../' . $this->badgePath;
+        $targetDirectory = dirname($badgeTargetPath);
 
-        $badge = str_replace('$cov$', $formattedCoverage, $template);
-        $badge = str_replace('$color$', $color, $badge);
+        if (!is_dir($targetDirectory)) {
+            mkdir($targetDirectory, 0777, true);
+        }
 
-        file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . '../' . $this->badgePath, $badge);
+        file_put_contents($badgeTargetPath, $badge);
     }
 }
