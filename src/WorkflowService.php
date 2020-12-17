@@ -23,7 +23,7 @@ class WorkflowService
 
         $codeCoverage = $this->reportParser->getCodeCoverage($this->config->getCloverFilePath());
 
-        $this->badgeGenerator->generateBadge($codeCoverage);
+        $this->badgeGenerator->generateBadge($codeCoverage, $this->config->getBadgePath());
 
         if ($this->config->isPushBadge()) {
             exec('chmod +x ' . __DIR__ . '/commit_push_badge.sh');
