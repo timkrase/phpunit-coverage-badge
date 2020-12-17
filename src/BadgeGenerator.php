@@ -12,14 +12,7 @@ class BadgeGenerator
         90 => "#4c1",
     ];
 
-    private string $badgePath;
-
-    public function __construct(string $badgePath)
-    {
-        $this->badgePath = $badgePath;
-    }
-
-    public function generateBadge(float $codeCoverage)
+    public function generateBadge(float $codeCoverage, string $badgePath)
     {
         $template = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '../template.svg');
 
@@ -29,7 +22,7 @@ class BadgeGenerator
         $badge = str_replace('$cov$', $formattedCoverage, $template);
         $badge = str_replace('$color$', $color, $badge);
 
-        $this->saveBadge($badge);
+        $this->saveBadge($badge, $badgePath);
     }
 
     private function formatCoverageNumber(float $coverage): string
@@ -46,9 +39,9 @@ class BadgeGenerator
         }
     }
 
-    public function saveBadge(string $badge)
+    public function saveBadge(string $badge, string $badgePath)
     {
-        $badgeTargetPath = __DIR__ . DIRECTORY_SEPARATOR . '../' . $this->badgePath;
+        $badgeTargetPath = __DIR__ . DIRECTORY_SEPARATOR . '../' . $badgePath;
         $targetDirectory = dirname($badgeTargetPath);
 
         if (!is_dir($targetDirectory)) {

@@ -29,9 +29,9 @@ EOT;
 
     public function testDirectoryDoesNotExistPreviously()
     {
-        $badgeGenerator = new BadgeGenerator('tests/this/is/no/directory/test_badge.svg');
+        $badgeGenerator = new BadgeGenerator();
 
-        $badgeGenerator->saveBadge(self::VALID_BADGE);
+        $badgeGenerator->saveBadge(self::VALID_BADGE, 'tests/this/is/no/directory/test_badge.svg');
 
         $this->assertFileExists(__DIR__ . '/this/is/no/directory/test_badge.svg');
 
@@ -46,9 +46,9 @@ EOT;
 
     public function testOverwritingBadge()
     {
-        $badgeGenerator = new BadgeGenerator('tests/resources/test_badge.svg');
+        $badgeGenerator = new BadgeGenerator();
 
-        $badgeGenerator->saveBadge(self::VALID_BADGE);
+        $badgeGenerator->saveBadge(self::VALID_BADGE, 'tests/resources/test_badge.svg');
 
         $badgePath = __DIR__ . '/resources/test_badge.svg';
         if (file_exists($badgePath)) {
