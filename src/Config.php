@@ -18,23 +18,24 @@ class Config
 
     public function __construct()
     {
-        $cloverFilePath = getenv('INPUT_CLOVER_REPORT');
+        $cloverFilePath = getenv('INPUT_CLOVER_REPORT', true);
         Assertion::string($cloverFilePath);
+        $cloverFilePath = __DIR__ . "/../" . $cloverFilePath;
         Assertion::file($cloverFilePath);
         $this->cloverFilePath = $cloverFilePath;
 
-        $badgePath = getenv('INPUT_COVERAGE_BADGE_PATH');
+        $badgePath = getenv('INPUT_COVERAGE_BADGE_PATH', true);
         Assertion::string($badgePath);
         $this->badgePath = $badgePath;
 
-        $pushBadge = filter_var(getenv('INPUT_PUSH_BADGE'), FILTER_VALIDATE_BOOLEAN);
+        $pushBadge = filter_var(getenv('INPUT_PUSH_BADGE', true), FILTER_VALIDATE_BOOLEAN);
         $this->pushBadge = $pushBadge;
 
-        $repoToken = getenv('INPUT_REPO_TOKEN');
+        $repoToken = getenv('INPUT_REPO_TOKEN', true);
         Assertion::string($repoToken);
         $this->repoToken = $repoToken;
 
-        $commitMessage = getenv('INPUT_COMMIT_MESSAGE');
+        $commitMessage = getenv('INPUT_COMMIT_MESSAGE', true);
         Assertion::string($commitMessage);
         $this->commitMessage = $commitMessage;
 
