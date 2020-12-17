@@ -8,5 +8,5 @@ use PhpUnitCoverageBadge\WorkflowService;
 return [
     ReportParserInterface::class => DI\create(CloverReportParser::class),
     BadgeGenerator::class => DI\autowire(),
-    WorkflowService::class => DI\autowire()
+    WorkflowService::class => DI\autowire(),
 ];

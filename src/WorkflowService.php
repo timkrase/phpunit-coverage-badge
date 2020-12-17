@@ -24,9 +24,11 @@ class WorkflowService
 
         $this->badgeGenerator->generateBadge($codeCoverage, $config->getBadgePath());
 
-        if ($config->isPushBadge()) {
-            exec('chmod +x ' . __DIR__ . '/commit_push_badge.sh');
-            exec(__DIR__ . '/commit_push_badge.sh');
+        if (!$config->isPushBadge()) {
+            return;
         }
+
+        exec('chmod +x ' . __DIR__ . '/commit_push_badge.sh');
+        exec(__DIR__ . '/commit_push_badge.sh');
     }
 }

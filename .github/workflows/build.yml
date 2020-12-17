@@ -37,6 +37,9 @@ jobs:
       - name: Run Psalm
         run: vendor/bin/psalm
 
+      - name: Run PHP_CS
+        run: vendor/bin/phpcs --standard=ruleset.xml --extensions=php --tab-width=4 -sp src tests
+
       - name: Run Unit Tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit
 
