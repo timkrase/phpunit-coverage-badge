@@ -12,7 +12,7 @@ class BadgeGenerator
         90 => "#4c1",
     ];
 
-    public function generateBadge(float $codeCoverage, string $badgePath)
+    public function generateBadge(float $codeCoverage, string $badgePath): void
     {
         $template = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '../template.svg');
 
@@ -37,9 +37,11 @@ class BadgeGenerator
                 return $color;
             }
         }
+
+        return self::COLORS[0];
     }
 
-    public function saveBadge(string $badge, string $badgePath)
+    public function saveBadge(string $badge, string $badgePath): void
     {
         $badgeTargetPath = __DIR__ . DIRECTORY_SEPARATOR . '../' . $badgePath;
         $targetDirectory = dirname($badgeTargetPath);

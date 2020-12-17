@@ -4,11 +4,11 @@
 namespace PhpUnitCoverageBadge;
 
 use Assert\Assertion;
-use Assert\AssertionFailedException;
 
 class Config
 {
     const REPO_TOKEN_DEFAULT = 'NOT_SUPPLIED';
+    const NO_REPO_TOKEN_EXCEPTION = 'Pushing the badge was activated but no Github Repo token has been supplied. Please add it to your workflow.';
 
     private string $cloverFilePath;
     private string $badgePath;
@@ -16,23 +16,47 @@ class Config
     private string $repoToken;
     private string $commitMessage;
 
+    public function __construct()
+    {
+        $cloverFilePath = getenv('INPUT_CLOVER_REPORT');
+        Assertion::string($cloverFilePath);
+        Assertion::file($cloverFilePath);
+        $this->cloverFilePath = $cloverFilePath;
+
+        $badgePath = getenv('INPUT_COVERAGE_BADGE_PATH');
+        Assertion::string($badgePath);
+        $this->badgePath = $badgePath;
+
+        $pushBadge = filter_var(getenv('INPUT_PUSH_BADGE'), FILTER_VALIDATE_BOOLEAN);
+        $this->pushBadge = $pushBadge;
+
+        $repoToken = getenv('INPUT_REPO_TOKEN');
+        Assertion::string($repoToken);
+        $this->repoToken = $repoToken;
+
+        $commitMessage = getenv('INPUT_COMMIT_MESSAGE');
+        Assertion::string($commitMessage);
+        $this->commitMessage = $commitMessage;
+
+        $this->runAdditionalValidation();
+    }
+
+    private function runAdditionalValidation(): void
+    {
+        $pushBadge = $this->isPushBadge();
+        $repoToken = $this->getRepoToken();
+
+        if ($pushBadge) {
+            Assertion::notEq($repoToken, Config::REPO_TOKEN_DEFAULT, self::NO_REPO_TOKEN_EXCEPTION);
+        }
+    }
+
     /**
      * @return string
      */
     public function getCloverFilePath(): string
     {
         return $this->cloverFilePath;
-    }
-
-    /**
-     * @param string $cloverFilePath
-     * @throws AssertionFailedException
-     */
-    public function setCloverFilePath(string $cloverFilePath): void
-    {
-        Assertion::file($cloverFilePath);
-
-        $this->cloverFilePath = $cloverFilePath;
     }
 
     /**
@@ -44,27 +68,11 @@ class Config
     }
 
     /**
-     * @param string $badgePath
-     */
-    public function setBadgePath(string $badgePath): void
-    {
-        $this->badgePath = $badgePath;
-    }
-
-    /**
      * @return bool
      */
     public function isPushBadge(): bool
     {
         return $this->pushBadge;
-    }
-
-    /**
-     * @param bool $pushBadge
-     */
-    public function setPushBadge(bool $pushBadge): void
-    {
-        $this->pushBadge = $pushBadge;
     }
 
     /**
@@ -76,26 +84,10 @@ class Config
     }
 
     /**
-     * @param string $repoToken
-     */
-    public function setRepoToken(string $repoToken): void
-    {
-        $this->repoToken = $repoToken;
-    }
-
-    /**
      * @return string
      */
     public function getCommitMessage(): string
     {
         return $this->commitMessage;
-    }
-
-    /**
-     * @param string $commitMessage
-     */
-    public function setCommitMessage(string $commitMessage): void
-    {
-        $this->commitMessage = $commitMessage;
     }
 }

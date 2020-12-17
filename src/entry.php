@@ -8,6 +8,7 @@ $containerBuilder = new DI\ContainerBuilder();
 $containerBuilder->addDefinitions(__DIR__ . '/DependencyInjection/config.php');
 $container = $containerBuilder->build();
 
+/** @var WorkflowService $workflowService */
 $workflowService = $container->get(WorkflowService::class);
 $workflowService->run();
 

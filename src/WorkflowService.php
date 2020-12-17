@@ -7,7 +7,6 @@ use PhpUnitCoverageBadge\ReportParser\ReportParserInterface;
 
 class WorkflowService
 {
-    private Config $config;
     private ReportParserInterface $reportParser;
     private BadgeGenerator $badgeGenerator;
 
@@ -17,31 +16,17 @@ class WorkflowService
         $this->badgeGenerator = $badgeGenerator;
     }
 
-    public function run()
+    public function run(): void
     {
-        $this->initConfig();
+        $config = new Config();
 
-        $codeCoverage = $this->reportParser->getCodeCoverage($this->config->getCloverFilePath());
+        $codeCoverage = $this->reportParser->getCodeCoverage($config->getCloverFilePath());
 
-        $this->badgeGenerator->generateBadge($codeCoverage, $this->config->getBadgePath());
+        $this->badgeGenerator->generateBadge($codeCoverage, $config->getBadgePath());
 
-        if ($this->config->isPushBadge()) {
+        if ($config->isPushBadge()) {
             exec('chmod +x ' . __DIR__ . '/commit_push_badge.sh');
             exec(__DIR__ . '/commit_push_badge.sh');
         }
-    }
-
-    private function initConfig(): void
-    {
-        $config = new Config();
-        $config->setCloverFilePath(getenv('INPUT_CLOVER_REPORT'));
-        $config->setBadgePath(getenv('INPUT_COVERAGE_BADGE_PATH'));
-        $config->setPushBadge(filter_var(getenv('INPUT_PUSH_BADGE'), FILTER_VALIDATE_BOOLEAN));
-        $config->setCommitMessage(getenv('INPUT_COMMIT_MESSAGE'));
-        $config->setRepoToken(getenv('INPUT_REPO_TOKEN'));
-
-        ConfigValidator::validateConfig($config);
-
-        $this->config = $config;
     }
 }

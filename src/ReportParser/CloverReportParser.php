@@ -2,6 +2,7 @@
 
 namespace PhpUnitCoverageBadge\ReportParser;
 
+use Assert\Assert;
 use Assert\Assertion;
 use Assert\AssertionFailedException;
 use Exception;
@@ -54,12 +55,15 @@ class CloverReportParser implements ReportParserInterface
 
         Assertion::notNull($reportMetrics, self::NO_METRICS_IN_CLOVER_FILE_EXCEPTION);
 
-        Assertion::notNull($reportMetrics->attributes()->coveredelements, );
-        Assertion::notNull($reportMetrics->attributes()->elements);
+        $metricsAttributes = $reportMetrics->attributes();
+        Assertion::notNull($metricsAttributes);
+
+        Assertion::notNull($metricsAttributes->coveredelements);
+        Assertion::notNull($metricsAttributes->elements);
 
         return [
-            'elements' => (int) $reportMetrics->attributes()->elements,
-            'coveredElements' => (int) $reportMetrics->attributes()->coveredelements,
+            'elements' => (int) $metricsAttributes->elements,
+            'coveredElements' => (int) $metricsAttributes->coveredelements,
         ];
     }
 }
