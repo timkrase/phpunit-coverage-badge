@@ -34,6 +34,9 @@ jobs:
       - name: Recreate autoload file
         run: composer dump-autoload
 
+      - name: Run Psalm
+        run: vendor/bin/psalm
+
       - name: Run Unit Tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit
 
