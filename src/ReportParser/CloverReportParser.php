@@ -45,7 +45,7 @@ class CloverReportParser implements ReportParserInterface
      */
     private function getReportMetrics(string $coverageReportPath): array
     {
-        $fileName = __DIR__ . DIRECTORY_SEPARATOR . $coverageReportPath;
+        $fileName = __DIR__ . '/../../' . $coverageReportPath;
 
         Assertion::file($fileName);
 
