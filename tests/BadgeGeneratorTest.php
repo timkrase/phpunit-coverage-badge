@@ -27,7 +27,7 @@ class BadgeGeneratorTest extends TestCase
 </svg>
 EOT;
 
-    public function testDirectoryDoesNotExistPreviously()
+    public function testDirectoryDoesNotExistPreviously(): void
     {
         $badgeGenerator = new BadgeGenerator();
 
@@ -35,29 +35,33 @@ EOT;
 
         $this->assertFileExists(__DIR__ . '/this/is/no/directory/test_badge.svg');
 
-        if (file_exists(__DIR__ . '/this/is/no/directory/test_badge.svg')) {
-            unlink(__DIR__ . '/this/is/no/directory/test_badge.svg');
-            rmdir(__DIR__ . '/this/is/no/directory');
-            rmdir(__DIR__ . '/this/is/no');
-            rmdir(__DIR__ . '/this/is');
-            rmdir(__DIR__ . '/this');
+        if (!file_exists(__DIR__ . '/this/is/no/directory/test_badge.svg')) {
+            return;
         }
+
+        unlink(__DIR__ . '/this/is/no/directory/test_badge.svg');
+        rmdir(__DIR__ . '/this/is/no/directory');
+        rmdir(__DIR__ . '/this/is/no');
+        rmdir(__DIR__ . '/this/is');
+        rmdir(__DIR__ . '/this');
     }
 
-    public function testOverwritingBadge()
+    public function testOverwritingBadge(): void
     {
         $badgeGenerator = new BadgeGenerator();
 
         $badgeGenerator->saveBadge(self::VALID_BADGE, 'tests/resources/test_badge.svg');
 
         $badgePath = __DIR__ . '/resources/test_badge.svg';
-        if (file_exists($badgePath)) {
-            $updatedBadgeContent = file_get_contents($badgePath);
-
-            $this->assertEquals(self::VALID_BADGE, $updatedBadgeContent);
-
-            unlink($badgePath);
-            copy(dirname($badgePath) . '/test_badge_backup.svg', $badgePath);
+        if (!file_exists($badgePath)) {
+            return;
         }
+
+        $updatedBadgeContent = file_get_contents($badgePath);
+
+        $this->assertEquals(self::VALID_BADGE, $updatedBadgeContent);
+
+        unlink($badgePath);
+        copy(dirname($badgePath) . '/test_badge_backup.svg', $badgePath);
     }
 }

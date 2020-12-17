@@ -46,13 +46,14 @@ class Config
         $pushBadge = $this->isPushBadge();
         $repoToken = $this->getRepoToken();
 
-        if ($pushBadge) {
-            Assertion::notEq($repoToken, Config::REPO_TOKEN_DEFAULT, self::NO_REPO_TOKEN_EXCEPTION);
+        if (!$pushBadge) {
+            return;
         }
+
+        Assertion::notEq($repoToken, Config::REPO_TOKEN_DEFAULT, self::NO_REPO_TOKEN_EXCEPTION);
     }
 
     /**
-     * @return string
      */
     public function getCloverFilePath(): string
     {
@@ -60,7 +61,6 @@ class Config
     }
 
     /**
-     * @return string
      */
     public function getBadgePath(): string
     {
@@ -68,7 +68,6 @@ class Config
     }
 
     /**
-     * @return bool
      */
     public function isPushBadge(): bool
     {
@@ -76,7 +75,6 @@ class Config
     }
 
     /**
-     * @return string
      */
     public function getRepoToken(): string
     {
@@ -84,7 +82,6 @@ class Config
     }
 
     /**
-     * @return string
      */
     public function getCommitMessage(): string
     {

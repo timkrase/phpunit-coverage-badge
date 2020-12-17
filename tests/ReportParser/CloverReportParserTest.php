@@ -8,7 +8,7 @@ use PhpUnitCoverageBadge\ReportParser\CloverReportParser;
 
 class CloverReportParserTest extends TestCase
 {
-    public function testExpectInvalidArgumentExceptionIfFileNotFound()
+    public function testExpectInvalidArgumentExceptionIfFileNotFound(): void
     {
         $coverageParser = new CloverReportParser();
 
@@ -16,7 +16,7 @@ class CloverReportParserTest extends TestCase
         $coverageParser->getCodeCoverage('tests/resources/clover33.xml');
     }
 
-    public function testExpectExceptionIfFileIsNotProperlyFormatted()
+    public function testExpectExceptionIfFileIsNotProperlyFormatted(): void
     {
         $coverageParser = new CloverReportParser();
 
@@ -24,7 +24,7 @@ class CloverReportParserTest extends TestCase
         $coverageParser->getCodeCoverage('tests/resources/wrong_clover.xml');
     }
     
-    public function testEmptyCloverWithoutCoveredElements()
+    public function testEmptyCloverWithoutCoveredElements(): void
     {
         $coverageParser = new CloverReportParser();
 
@@ -32,7 +32,7 @@ class CloverReportParserTest extends TestCase
         $this->assertEquals(0, $coverage);
     }
 
-    public function testWithValidCloverFile()
+    public function testWithValidCloverFile(): void
     {
         $coverageParser = new CloverReportParser();
 

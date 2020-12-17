@@ -2,10 +2,7 @@
 
 namespace PhpUnitCoverageBadge\ReportParser;
 
-use Assert\Assert;
 use Assert\Assertion;
-use Assert\AssertionFailedException;
-use Exception;
 use SimpleXMLElement;
 
 class CloverReportParser implements ReportParserInterface
@@ -14,8 +11,6 @@ class CloverReportParser implements ReportParserInterface
         Please check that xml node <metrics> does exist as a child of <project>';
 
     /**
-     * @param string $coverageReportPath
-     * @return float
      * @throws Exception
      * @throws AssertionFailedException
      */
@@ -32,7 +27,7 @@ class CloverReportParser implements ReportParserInterface
         //Prevent divide by zero errors
         $elements = $elements === 0 ? 1 : $elements;
 
-        return ($coveredElements / $elements) * 100;
+        return $coveredElements / $elements * 100;
     }
 
     /**
@@ -40,7 +35,6 @@ class CloverReportParser implements ReportParserInterface
      * Inspired by:
      * https://ocramius.github.io/blog/automated-code-coverage-check-for-github-pull-requests-with-travis/
      *
-     * @param string $coverageReportPath
      * @return int[]
      * @throws AssertionFailedException
      */
