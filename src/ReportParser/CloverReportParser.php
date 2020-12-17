@@ -3,6 +3,7 @@
 namespace PhpUnitCoverageBadge\ReportParser;
 
 use Assert\Assertion;
+use Assert\AssertionFailedException;
 use SimpleXMLElement;
 
 class CloverReportParser implements ReportParserInterface
@@ -11,7 +12,6 @@ class CloverReportParser implements ReportParserInterface
         Please check that xml node <metrics> does exist as a child of <project>';
 
     /**
-     * @throws Exception
      * @throws AssertionFailedException
      */
     public function getCodeCoverage(string $coverageReportPath): float
