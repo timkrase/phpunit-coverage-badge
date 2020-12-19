@@ -43,13 +43,12 @@ class BadgeGenerator
 
     public function saveBadge(string $badge, string $badgePath): void
     {
-        $badgeTargetPath = __DIR__ . DIRECTORY_SEPARATOR . '../' . $badgePath;
-        $targetDirectory = dirname($badgeTargetPath);
+        $targetDirectory = dirname($badgePath);
 
         if (!is_dir($targetDirectory)) {
             mkdir($targetDirectory, 0777, true);
         }
 
-        file_put_contents($badgeTargetPath, $badge);
+        file_put_contents($badgePath, $badge);
     }
 }

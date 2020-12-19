@@ -40,11 +40,9 @@ class CloverReportParser implements ReportParserInterface
      */
     private function getReportMetrics(string $coverageReportPath): array
     {
-        $fileName = __DIR__ . '/../../' . $coverageReportPath;
+        Assertion::file($coverageReportPath);
 
-        Assertion::file($fileName);
-
-        $xmlElement = new SimpleXMLElement(file_get_contents($fileName));
+        $xmlElement = new SimpleXMLElement(file_get_contents($coverageReportPath));
         $reportMetrics = $xmlElement->xPath('project/metrics')[0] ?? null;
 
         Assertion::notNull($reportMetrics, self::NO_METRICS_IN_CLOVER_FILE_EXCEPTION);

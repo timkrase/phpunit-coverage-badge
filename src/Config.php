@@ -26,6 +26,7 @@ class Config
 
         $badgePath = getenv('INPUT_COVERAGE_BADGE_PATH', true);
         Assertion::string($badgePath);
+        $badgePath = __DIR__ . "/../" . $badgePath;
         $this->badgePath = $badgePath;
 
         $pushBadge = filter_var(getenv('INPUT_PUSH_BADGE', true), FILTER_VALIDATE_BOOLEAN);
