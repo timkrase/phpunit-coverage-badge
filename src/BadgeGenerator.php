@@ -32,13 +32,15 @@ class BadgeGenerator
 
     private function matchCoverageColor(float $coverage): string
     {
+        $coverageColor = self::COLORS[0];
         foreach (array_reverse(self::COLORS, true) as $threshold => $color) {
             if ($coverage >= $threshold) {
-                return $color;
+                $coverageColor = $color;
+                break;
             }
         }
 
-        return self::COLORS[0];
+        return $coverageColor;
     }
 
     public function saveBadge(string $badge, string $badgePath): void
