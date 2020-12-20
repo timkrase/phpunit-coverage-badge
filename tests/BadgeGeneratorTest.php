@@ -64,8 +64,6 @@ EOT;
     }
 
     /**
-     * @param float $codeCoverage
-     * @param string $badgeName
      *
      * @dataProvider generateBadgeDataProvider
      */
@@ -85,6 +83,9 @@ EOT;
         $this->assertSame($shouldBeBadge, $badge);
     }
 
+    /**
+     * @return mixed[]
+     */
     public function generateBadgeDataProvider(): array
     {
         return [
