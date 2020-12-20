@@ -15,6 +15,8 @@ class Config
     private bool $pushBadge;
     private string $repoToken;
     private string $commitMessage;
+    private string $commitEmail;
+    private string $commitName;
 
     public function __construct()
     {
@@ -40,6 +42,14 @@ class Config
         Assertion::string($commitMessage);
         $this->commitMessage = $commitMessage;
 
+        $commitEmail = getenv('INPUT_COMMIT_EMAIL', true);
+        Assertion::string($commitEmail);
+        $this->commitEmail = $commitEmail;
+
+        $commitName = getenv('INPUT_COMMIT_NAME', true);
+        Assertion::string($commitName);
+        $this->commitName = $commitName;
+
         $this->runAdditionalValidation();
     }
 
@@ -55,38 +65,43 @@ class Config
         Assertion::notEq($repoToken, Config::REPO_TOKEN_DEFAULT, self::NO_REPO_TOKEN_EXCEPTION);
     }
 
-    /**
-     */
     public function getCloverFilePath(): string
     {
         return $this->cloverFilePath;
     }
 
-    /**
-     */
     public function getBadgePath(): string
     {
         return $this->badgePath;
     }
 
-    /**
-     */
     public function isPushBadge(): bool
     {
         return $this->pushBadge;
     }
 
-    /**
-     */
     public function getRepoToken(): string
     {
         return $this->repoToken;
     }
 
-    /**
-     */
     public function getCommitMessage(): string
     {
         return $this->commitMessage;
+    }
+
+    public function getPushBadge(): bool
+    {
+        return $this->pushBadge;
+    }
+
+    public function getCommitEmail(): string
+    {
+        return $this->commitEmail;
+    }
+
+    public function getCommitName(): string
+    {
+        return $this->commitName;
     }
 }

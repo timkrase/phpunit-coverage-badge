@@ -9,11 +9,16 @@ class WorkflowService
 {
     private ReportParserInterface $reportParser;
     private BadgeGenerator $badgeGenerator;
+    private GitService $gitService;
 
-    public function __construct(ReportParserInterface $reportParser, BadgeGenerator $badgeGenerator)
-    {
+    public function __construct(
+        ReportParserInterface $reportParser,
+        BadgeGenerator $badgeGenerator,
+        GitService $gitService
+    ) {
         $this->reportParser = $reportParser;
         $this->badgeGenerator = $badgeGenerator;
+        $this->gitService = $gitService;
     }
 
     public function run(): void
@@ -24,11 +29,13 @@ class WorkflowService
 
         $this->badgeGenerator->generateBadge($codeCoverage, $config->getBadgePath());
 
-        if (!$config->isPushBadge()) {
-            return;
+        if ($config->isPushBadge()) {
+            $this->gitService->pushBadge(
+                $config->getCommitEmail(),
+                $config->getCommitName(),
+                $config->getCommitMessage(),
+                $config->getRepoToken()
+            );
         }
-
-        exec('chmod +x ' . __DIR__ . '/commit_push_badge.sh');
-        exec(__DIR__ . '/commit_push_badge.sh');
     }
 }

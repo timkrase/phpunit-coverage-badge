@@ -67,3 +67,5 @@ runs:
     - ${{ inputs.coverage-badge-path }}
     - ${{ inputs.repo_token }}
     - ${{ inputs.commit_message }}
+    - ${{ inputs.commit_email }}
+    - ${{ inputs.commit_name }}
