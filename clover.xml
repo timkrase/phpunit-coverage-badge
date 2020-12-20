@@ -1,77 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1608397152">
-  <project timestamp="1608397152">
+<coverage generated="1608479485">
+  <project timestamp="1608479485">
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/BadgeGenerator.php">
       <class name="PhpUnitCoverageBadge\BadgeGenerator" namespace="global">
-        <metrics complexity="7" methods="4" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="5" elements="21" coveredelements="6"/>
+        <metrics complexity="7" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
       </class>
-      <line num="15" type="method" name="generateBadge" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="26" type="stmt" count="0"/>
-      <line num="28" type="method" name="formatCoverageNumber" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="30" type="stmt" count="0"/>
-      <line num="33" type="method" name="matchCoverageColor" visibility="private" complexity="3" crap="12" count="0"/>
-      <line num="35" type="stmt" count="0"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="41" type="stmt" count="0"/>
-      <line num="44" type="method" name="saveBadge" visibility="public" complexity="2" crap="2" count="2"/>
-      <line num="46" type="stmt" count="2"/>
-      <line num="48" type="stmt" count="2"/>
-      <line num="49" type="stmt" count="1"/>
-      <line num="52" type="stmt" count="2"/>
-      <line num="53" type="stmt" count="2"/>
-      <line num="54" type="stmt" count="1"/>
-      <metrics loc="53" ncloc="53" classes="1" methods="4" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="5" elements="21" coveredelements="6"/>
+      <line num="15" type="method" name="generateBadge" visibility="public" complexity="1" crap="1" count="10"/>
+      <line num="17" type="stmt" count="10"/>
+      <line num="19" type="stmt" count="10"/>
+      <line num="20" type="stmt" count="10"/>
+      <line num="22" type="stmt" count="10"/>
+      <line num="23" type="stmt" count="10"/>
+      <line num="25" type="stmt" count="10"/>
+      <line num="26" type="stmt" count="10"/>
+      <line num="28" type="method" name="formatCoverageNumber" visibility="private" complexity="1" crap="1" count="10"/>
+      <line num="30" type="stmt" count="10"/>
+      <line num="33" type="method" name="matchCoverageColor" visibility="private" complexity="3" crap="3" count="10"/>
+      <line num="35" type="stmt" count="10"/>
+      <line num="36" type="stmt" count="10"/>
+      <line num="37" type="stmt" count="10"/>
+      <line num="38" type="stmt" count="10"/>
+      <line num="39" type="stmt" count="10"/>
+      <line num="43" type="stmt" count="10"/>
+      <line num="46" type="method" name="saveBadge" visibility="public" complexity="2" crap="2" count="12"/>
+      <line num="48" type="stmt" count="12"/>
+      <line num="50" type="stmt" count="12"/>
+      <line num="51" type="stmt" count="11"/>
+      <line num="54" type="stmt" count="12"/>
+      <line num="55" type="stmt" count="12"/>
+      <line num="56" type="stmt" count="1"/>
+      <metrics loc="55" ncloc="55" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
     </file>
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/Config.php">
       <class name="PhpUnitCoverageBadge\Config" namespace="global">
-        <metrics complexity="8" methods="7" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="26" elements="37" coveredelements="29"/>
+        <metrics complexity="11" methods="10" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="32" elements="49" coveredelements="35"/>
       </class>
-      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
-      <line num="21" type="stmt" count="7"/>
-      <line num="22" type="stmt" count="7"/>
-      <line num="23" type="stmt" count="6"/>
-      <line num="24" type="stmt" count="6"/>
-      <line num="25" type="stmt" count="5"/>
+      <line num="21" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
+      <line num="23" type="stmt" count="7"/>
+      <line num="24" type="stmt" count="7"/>
+      <line num="25" type="stmt" count="6"/>
+      <line num="26" type="stmt" count="6"/>
       <line num="27" type="stmt" count="5"/>
-      <line num="28" type="stmt" count="5"/>
-      <line num="29" type="stmt" count="4"/>
-      <line num="30" type="stmt" count="4"/>
+      <line num="29" type="stmt" count="5"/>
+      <line num="30" type="stmt" count="5"/>
+      <line num="31" type="stmt" count="4"/>
       <line num="32" type="stmt" count="4"/>
-      <line num="33" type="stmt" count="4"/>
+      <line num="34" type="stmt" count="4"/>
       <line num="35" type="stmt" count="4"/>
-      <line num="36" type="stmt" count="4"/>
-      <line num="37" type="stmt" count="3"/>
+      <line num="37" type="stmt" count="4"/>
+      <line num="38" type="stmt" count="4"/>
       <line num="39" type="stmt" count="3"/>
-      <line num="40" type="stmt" count="3"/>
-      <line num="41" type="stmt" count="2"/>
+      <line num="41" type="stmt" count="3"/>
+      <line num="42" type="stmt" count="3"/>
       <line num="43" type="stmt" count="2"/>
-      <line num="44" type="stmt" count="1"/>
-      <line num="46" type="method" name="runAdditionalValidation" visibility="private" complexity="2" crap="2.02" count="2"/>
-      <line num="48" type="stmt" count="2"/>
+      <line num="45" type="stmt" count="2"/>
+      <line num="46" type="stmt" count="2"/>
+      <line num="47" type="stmt" count="2"/>
       <line num="49" type="stmt" count="2"/>
+      <line num="50" type="stmt" count="2"/>
       <line num="51" type="stmt" count="2"/>
-      <line num="52" type="stmt" count="1"/>
-      <line num="55" type="stmt" count="1"/>
-      <line num="56" type="stmt" count="0"/>
-      <line num="60" type="method" name="getCloverFilePath" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="62" type="stmt" count="0"/>
-      <line num="67" type="method" name="getBadgePath" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="69" type="stmt" count="0"/>
-      <line num="74" type="method" name="isPushBadge" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="76" type="stmt" count="2"/>
-      <line num="81" type="method" name="getRepoToken" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="83" type="stmt" count="2"/>
+      <line num="53" type="stmt" count="2"/>
+      <line num="54" type="stmt" count="1"/>
+      <line num="56" type="method" name="runAdditionalValidation" visibility="private" complexity="2" crap="2.02" count="2"/>
+      <line num="58" type="stmt" count="2"/>
+      <line num="59" type="stmt" count="2"/>
+      <line num="61" type="stmt" count="2"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="65" type="stmt" count="1"/>
+      <line num="66" type="stmt" count="0"/>
+      <line num="68" type="method" name="getCloverFilePath" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="70" type="stmt" count="0"/>
+      <line num="73" type="method" name="getBadgePath" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="75" type="stmt" count="0"/>
+      <line num="78" type="method" name="isPushBadge" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="80" type="stmt" count="2"/>
+      <line num="83" type="method" name="getRepoToken" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="85" type="stmt" count="2"/>
       <line num="88" type="method" name="getCommitMessage" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="90" type="stmt" count="0"/>
-      <line num="92" type="stmt" count="7"/>
-      <metrics loc="91" ncloc="81" classes="1" methods="7" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="26" elements="37" coveredelements="29"/>
+      <line num="93" type="method" name="getPushBadge" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="95" type="stmt" count="0"/>
+      <line num="98" type="method" name="getCommitEmail" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="100" type="stmt" count="0"/>
+      <line num="103" type="method" name="getCommitName" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="105" type="stmt" count="0"/>
+      <line num="107" type="stmt" count="7"/>
+      <metrics loc="106" ncloc="106" classes="1" methods="10" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="32" elements="49" coveredelements="35"/>
+    </file>
+    <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/GitService.php">
+      <class name="PhpUnitCoverageBadge\GitService" namespace="global">
+        <metrics complexity="7" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="0" elements="26" coveredelements="0"/>
+      </class>
+      <line num="7" type="method" name="pushBadge" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="9" type="stmt" count="0"/>
+      <line num="10" type="stmt" count="0"/>
+      <line num="12" type="stmt" count="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <line num="15" type="stmt" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="20" type="method" name="addFile" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="25" type="method" name="commit" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="30" type="method" name="push" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="35" type="method" name="setUserEmail" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="40" type="method" name="setUserName" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="45" type="method" name="setConfig" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <metrics loc="48" ncloc="48" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="0" elements="26" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/ReportParser/CloverReportParser.php">
       <class name="PhpUnitCoverageBadge\ReportParser\CloverReportParser" namespace="global">
@@ -100,29 +147,33 @@
       <metrics loc="60" ncloc="49" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="17" elements="19" coveredelements="19"/>
     </file>
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/ReportParser/ReportParserInterface.php">
-      <line num="13" type="stmt" count="1"/>
-      <metrics loc="12" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <line num="11" type="stmt" count="1"/>
+      <metrics loc="10" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/WorkflowService.php">
       <class name="PhpUnitCoverageBadge\WorkflowService" namespace="global">
-        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="13" coveredelements="0"/>
+        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="17" coveredelements="0"/>
       </class>
-      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="16" type="stmt" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="19" type="method" name="run" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
       <line num="21" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="27" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="24" type="method" name="run" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="26" type="stmt" count="0"/>
       <line num="28" type="stmt" count="0"/>
-      <line num="31" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
       <line num="32" type="stmt" count="0"/>
       <line num="33" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <metrics loc="33" ncloc="33" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="13" coveredelements="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <metrics loc="42" ncloc="42" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="17" coveredelements="0"/>
     </file>
-    <metrics files="5" loc="249" ncloc="223" classes="4" methods="15" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="75" coveredstatements="48" elements="90" coveredelements="54"/>
+    <metrics files="6" loc="321" ncloc="307" classes="5" methods="25" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="109" coveredstatements="68" elements="134" coveredelements="77"/>
   </project>
 </coverage>
