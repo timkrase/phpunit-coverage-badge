@@ -53,6 +53,8 @@ class ConfigTest extends TestCase
         $this->addValidBadgePath();
         $this->addValidRepoToken();
         $this->addValidCommitMessage();
+        $this->addDefaultCommitEmail();
+        $this->addDefaultCommitName();
 
         $config = new Config();
 
@@ -68,6 +70,8 @@ class ConfigTest extends TestCase
         $this->addValidBadgePath();
         $this->addValidCommitMessage();
         $this->addDefaultRepoToken();
+        $this->addDefaultCommitEmail();
+        $this->addDefaultCommitName();
 
         putenv('INPUT_PUSH_BADGE=true');
 
@@ -128,5 +132,15 @@ class ConfigTest extends TestCase
     private function addDefaultRepoToken(): void
     {
         putenv('INPUT_REPO_TOKEN=' . Config::REPO_TOKEN_DEFAULT);
+    }
+
+    private function addDefaultCommitEmail(): void
+    {
+        putenv('INPUT_COMMIT_EMAIL=41898282+github-actions[bot]@users.noreply.github.com');
+    }
+
+    private function addDefaultCommitName(): void
+    {
+        putenv('INPUT_COMMIT_NAME=Github Actions Bot');
     }
 }
