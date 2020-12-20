@@ -1,9 +1,10 @@
 <?php
 
+namespace PhpUnitCoverageBadge;
 
 use Assert\Assertion;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use PhpUnitCoverageBadge\Config;
 
 class ConfigTest extends TestCase
 {
@@ -107,6 +108,53 @@ class ConfigTest extends TestCase
         $this->expectExceptionCode(Assertion::INVALID_STRING);
 
         new Config();
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testAllValidNoPush(): void
+    {
+        $this->addValidClover();
+        $this->addValidBadgePath();
+        $this->addValidRepoToken();
+        $this->addValidCommitMessage();
+        $this->addDefaultCommitEmail();
+        $this->addDefaultCommitName();
+        putenv('INPUT_PUSH_BADGE=true');
+
+        $config = new Config();
+
+        $this->assertEquals(realpath(__DIR__ . '/../tests/resources/clover_valid_29.xml'), realpath($config->getCloverFilePath()));
+        $this->assertEquals(realpath(__DIR__ . '/../' . 'badge.svg'), realpath($config->getBadgePath()));
+        $this->assertEquals('testtesttest', $config->getRepoToken());
+        $this->assertEquals('Default Commit Message', $config->getCommitMessage());
+        $this->assertEquals('41898282+github-actions[bot]@users.noreply.github.com', $config->getCommitEmail());
+        $this->assertEquals('Github Actions Bot', $config->getCommitName());
+        $this->assertEquals(true, $config->getPushBadge());
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testAllValidWithPush(): void
+    {
+        $this->addValidClover();
+        $this->addValidBadgePath();
+        $this->addValidRepoToken();
+        $this->addValidCommitMessage();
+        $this->addDefaultCommitEmail();
+        $this->addDefaultCommitName();
+
+        $config = new Config();
+
+        $this->assertEquals(realpath(__DIR__ . '/../tests/resources/clover_valid_29.xml'), realpath($config->getCloverFilePath()));
+        $this->assertEquals(realpath(__DIR__ . '/../' . 'badge.svg'), realpath($config->getBadgePath()));
+        $this->assertEquals('testtesttest', $config->getRepoToken());
+        $this->assertEquals('Default Commit Message', $config->getCommitMessage());
+        $this->assertEquals('41898282+github-actions[bot]@users.noreply.github.com', $config->getCommitEmail());
+        $this->assertEquals('Github Actions Bot', $config->getCommitName());
+        $this->assertEquals(false, $config->getPushBadge());
     }
 
     private function addValidClover(): void
