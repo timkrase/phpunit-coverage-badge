@@ -29,13 +29,15 @@ class WorkflowService
 
         $this->badgeGenerator->generateBadge($codeCoverage, $config->getBadgePath());
 
-        if ($config->isPushBadge()) {
-            $this->gitService->pushBadge(
-                $config->getCommitEmail(),
-                $config->getCommitName(),
-                $config->getCommitMessage(),
-                $config->getRepoToken()
-            );
+        if (!$config->isPushBadge()) {
+            return;
         }
+        
+        $this->gitService->pushBadge(
+            $config->getCommitEmail(),
+            $config->getCommitName(),
+            $config->getCommitMessage(),
+            $config->getRepoToken()
+        );
     }
 }
