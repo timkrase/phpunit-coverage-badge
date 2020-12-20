@@ -9,7 +9,7 @@ class GitServiceTest extends TestCase
 {
     use PHPMock;
 
-    public function testPushBadge()
+    public function testPushBadge(): void
     {
         $exec = $this->getFunctionMock(__NAMESPACE__, 'exec');
         $exec->expects($this->exactly(6))->withConsecutive(
