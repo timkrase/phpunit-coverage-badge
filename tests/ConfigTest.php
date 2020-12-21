@@ -1,9 +1,10 @@
 <?php
 
+namespace PhpUnitCoverageBadge;
 
 use Assert\Assertion;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use PhpUnitCoverageBadge\Config;
 
 class ConfigTest extends TestCase
 {
@@ -53,6 +54,8 @@ class ConfigTest extends TestCase
         $this->addValidBadgePath();
         $this->addValidRepoToken();
         $this->addValidCommitMessage();
+        $this->addDefaultCommitEmail();
+        $this->addDefaultCommitName();
 
         $config = new Config();
 
@@ -68,6 +71,8 @@ class ConfigTest extends TestCase
         $this->addValidBadgePath();
         $this->addValidCommitMessage();
         $this->addDefaultRepoToken();
+        $this->addDefaultCommitEmail();
+        $this->addDefaultCommitName();
 
         putenv('INPUT_PUSH_BADGE=true');
 
@@ -105,6 +110,53 @@ class ConfigTest extends TestCase
         new Config();
     }
 
+    /**
+     * @runInSeparateProcess
+     */
+    public function testAllValidNoPush(): void
+    {
+        $this->addValidClover();
+        $this->addValidBadgePath();
+        $this->addValidRepoToken();
+        $this->addValidCommitMessage();
+        $this->addDefaultCommitEmail();
+        $this->addDefaultCommitName();
+        putenv('INPUT_PUSH_BADGE=true');
+
+        $config = new Config();
+
+        $this->assertEquals(realpath(__DIR__ . '/../tests/resources/clover_valid_29.xml'), realpath($config->getCloverFilePath()));
+        $this->assertEquals(realpath(__DIR__ . '/../' . 'badge.svg'), realpath($config->getBadgePath()));
+        $this->assertEquals('testtesttest', $config->getRepoToken());
+        $this->assertEquals('Default Commit Message', $config->getCommitMessage());
+        $this->assertEquals('41898282+github-actions[bot]@users.noreply.github.com', $config->getCommitEmail());
+        $this->assertEquals('Github Actions Bot', $config->getCommitName());
+        $this->assertEquals(true, $config->getPushBadge());
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testAllValidWithPush(): void
+    {
+        $this->addValidClover();
+        $this->addValidBadgePath();
+        $this->addValidRepoToken();
+        $this->addValidCommitMessage();
+        $this->addDefaultCommitEmail();
+        $this->addDefaultCommitName();
+
+        $config = new Config();
+
+        $this->assertEquals(realpath(__DIR__ . '/../tests/resources/clover_valid_29.xml'), realpath($config->getCloverFilePath()));
+        $this->assertEquals(realpath(__DIR__ . '/../' . 'badge.svg'), realpath($config->getBadgePath()));
+        $this->assertEquals('testtesttest', $config->getRepoToken());
+        $this->assertEquals('Default Commit Message', $config->getCommitMessage());
+        $this->assertEquals('41898282+github-actions[bot]@users.noreply.github.com', $config->getCommitEmail());
+        $this->assertEquals('Github Actions Bot', $config->getCommitName());
+        $this->assertEquals(false, $config->getPushBadge());
+    }
+
     private function addValidClover(): void
     {
         putenv('INPUT_CLOVER_REPORT=tests/resources/clover_valid_29.xml');
@@ -128,5 +180,15 @@ class ConfigTest extends TestCase
     private function addDefaultRepoToken(): void
     {
         putenv('INPUT_REPO_TOKEN=' . Config::REPO_TOKEN_DEFAULT);
+    }
+
+    private function addDefaultCommitEmail(): void
+    {
+        putenv('INPUT_COMMIT_EMAIL=41898282+github-actions[bot]@users.noreply.github.com');
+    }
+
+    private function addDefaultCommitName(): void
+    {
+        putenv('INPUT_COMMIT_NAME=Github Actions Bot');
     }
 }
