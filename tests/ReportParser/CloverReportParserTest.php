@@ -1,10 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace ReportParser;
+namespace PhpUnitCoverageBadge\ReportParser;
 
 use Assert\Assertion;
 use PHPUnit\Framework\TestCase;
-use PhpUnitCoverageBadge\ReportParser\CloverReportParser;
 
 class CloverReportParserTest extends TestCase
 {

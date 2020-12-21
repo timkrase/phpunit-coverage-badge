@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PhpUnitCoverageBadge\\": ["src"]
+            "PhpUnitCoverageBadge\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PhpUnitCoverageBadge\\": ["tests"]
+            "PhpUnitCoverageBadge\\": "tests/"
         }
     }
 }

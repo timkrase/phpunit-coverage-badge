@@ -1,8 +1,8 @@
 <?php
 
+namespace PhpUnitCoverageBadge;
 
 use PHPUnit\Framework\TestCase;
-use PhpUnitCoverageBadge\BadgeGenerator;
 
 class BadgeGeneratorTest extends TestCase
 {
