@@ -4,8 +4,7 @@
 
 This action calculates the test coverage using a PHPUnit Clover report and generates an SVG badge from it.
 This badge can then also be pushed to the repository to be displayed in the README (or wherever else you might need it).
-An example is the badge above this text block, which shows the current test coverage of this project. 
-There is something ironic about this project showcasing its own poor test coverage.
+An example is the badge above this text block, which shows the current test coverage of this project.
 
 Inspired by [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) and [richardregeer/phpunit-coverage-check](https://github.com/richardregeer/phpunit-coverage-check).
 
@@ -13,6 +12,18 @@ The template for the svg badge was created using [Method Draw](http://github.com
 
 # Configuration
 This action has no required inputs. However, probably at least the path to the Clover.xml file must be adjusted if it is not saved in the project root as clover.xml.
+
+You can automatically generate a clover report file with every PHPUnit run by adding the following configuration to your phpunit.xml file:
+```
+    <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <report>
+            <clover outputFile="clover.xml" />
+        </report>
+    </coverage>
+```
 
 The default configuration does **NOT** push the badge back into the repository. 
 Setting the input **push_badge** in your workflow to true will enable the commit and push process and the badge will be pushed into the repository after it's been generated.
