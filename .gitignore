@@ -1,5 +1,5 @@
 vendor
 .phpunit.result.cache
 .phpunit.cache
-html
+/html
 .idea

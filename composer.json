@@ -11,6 +11,8 @@
     "require": {
         "php": ">=7.4",
         "ext-simplexml": "*",
+        "ext-dom": "*",
+        "ext-libxml": "*",
         "beberlei/assert": "^3.3",
         "phpoption/phpoption": "^1.7",
         "php-di/php-di": "^6.3",
