@@ -41,12 +41,13 @@ jobs:
         run: composer phpcs
 
       - name: Run Unit Tests
-        run: composer test
+        run: XDEBUG_MODE_COVERAGE=coverage vendor/bin/phpunit --coverage-html html
 
       - name: Generate test coverage badge
         uses: ./
         with:
-          clover_report: 'clover.xml'
+          report: 'html/index.html'
+          report_type: 'html'
           coverage_badge_path: 'badge.svg'
           push_badge: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
