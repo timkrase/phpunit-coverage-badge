@@ -25,7 +25,7 @@ class WorkflowService
     {
         $config = new Config();
 
-        $codeCoverage = $this->reportParser->getCodeCoverage($config->getCloverFilePath());
+        $codeCoverage = $this->reportParser->getCodeCoverage($config->getReportFilePath());
 
         $this->badgeGenerator->generateBadge($codeCoverage, $config->getBadgePath());
 

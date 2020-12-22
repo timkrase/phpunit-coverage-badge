@@ -7,7 +7,7 @@ class GitService
     public function pushBadge(string $email, string $name, string $message, string $repoToken): void
     {
         $this->addFile('${INPUT_COVERAGE_BADGE_PATH}');
-        $this->addFile('${INPUT_CLOVER_REPORT}');
+        $this->addFile('${INPUT_REPORT}');
 
         $this->setUserEmail($email);
         $this->setUserName($name);

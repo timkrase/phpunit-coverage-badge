@@ -18,7 +18,7 @@ trait ConfigTestTrait
 
     public function addValidClover(): void
     {
-        putenv('INPUT_CLOVER_REPORT=tests/resources/clover_valid_29.xml');
+        putenv('INPUT_REPORT=tests/resources/clover_valid_29.xml');
     }
 
     public function addValidBadgePath(): void

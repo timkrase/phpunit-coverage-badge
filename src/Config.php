@@ -10,7 +10,7 @@ class Config
     const REPO_TOKEN_DEFAULT = 'NOT_SUPPLIED';
     const NO_REPO_TOKEN_EXCEPTION = 'Pushing the badge was activated but no Github Repo token has been supplied. Please add it to your workflow.';
 
-    private string $cloverFilePath;
+    private string $reportFilePath;
     private string $badgePath;
     private bool $pushBadge;
     private string $repoToken;
@@ -20,11 +20,11 @@ class Config
 
     public function __construct()
     {
-        $cloverFilePath = getenv('INPUT_CLOVER_REPORT', true);
-        Assertion::string($cloverFilePath);
-        $cloverFilePath = __DIR__ . "/../" . $cloverFilePath;
-        Assertion::file($cloverFilePath);
-        $this->cloverFilePath = realpath($cloverFilePath);
+        $reportFilePath = getenv('INPUT_REPORT', true);
+        Assertion::string($reportFilePath);
+        $reportFilePath = __DIR__ . "/../" . $reportFilePath;
+        Assertion::file($reportFilePath);
+        $this->reportFilePath = realpath($reportFilePath);
 
         $badgePath = getenv('INPUT_COVERAGE_BADGE_PATH', true);
         Assertion::string($badgePath);
@@ -65,9 +65,9 @@ class Config
         Assertion::notEq($repoToken, Config::REPO_TOKEN_DEFAULT, self::NO_REPO_TOKEN_EXCEPTION);
     }
 
-    public function getCloverFilePath(): string
+    public function getReportFilePath(): string
     {
-        return $this->cloverFilePath;
+        return $this->reportFilePath;
     }
 
     public function getBadgePath(): string

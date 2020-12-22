@@ -14,7 +14,7 @@ class GitServiceTest extends TestCase
         $exec = $this->getFunctionMock(__NAMESPACE__, 'exec');
         $exec->expects($this->exactly(6))->withConsecutive(
             ['git add "${INPUT_COVERAGE_BADGE_PATH}"'],
-            ['git add "${INPUT_CLOVER_REPORT}"'],
+            ['git add "${INPUT_REPORT}"'],
             ['git config user.email "${INPUT_COMMIT_EMAIL}"'],
             ['git config user.name "${INPUT_COMMIT_NAME}"'],
             ['git commit -m "${INPUT_COMMIT_MESSAGE}"'],

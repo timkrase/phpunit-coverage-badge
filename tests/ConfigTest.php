@@ -26,7 +26,7 @@ class ConfigTest extends TestCase
      */
     public function testWrongCloverFile(): void
     {
-        putenv('INPUT_CLOVER_REPORT=tests/resources/notexistingcloverfile.xml');
+        putenv('INPUT_REPORT=tests/resources/notexistingcloverfile.xml');
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionCode(Assertion::INVALID_FILE);
@@ -122,7 +122,7 @@ class ConfigTest extends TestCase
 
         $config = new Config();
 
-        $this->assertEquals(realpath(__DIR__ . '/../tests/resources/clover_valid_29.xml'), realpath($config->getCloverFilePath()));
+        $this->assertEquals(realpath(__DIR__ . '/../tests/resources/clover_valid_29.xml'), realpath($config->getReportFilePath()));
         $this->assertEquals(realpath(__DIR__ . '/../' . 'badge.svg'), realpath($config->getBadgePath()));
         $this->assertEquals('testtesttest', $config->getRepoToken());
         $this->assertEquals('Default Commit Message', $config->getCommitMessage());
@@ -139,7 +139,7 @@ class ConfigTest extends TestCase
         $this->addAllValidConfigSettings();
         $config = new Config();
 
-        $this->assertEquals(realpath(__DIR__ . '/../tests/resources/clover_valid_29.xml'), realpath($config->getCloverFilePath()));
+        $this->assertEquals(realpath(__DIR__ . '/../tests/resources/clover_valid_29.xml'), realpath($config->getReportFilePath()));
         $this->assertEquals(realpath(__DIR__ . '/../' . 'badge.svg'), realpath($config->getBadgePath()));
         $this->assertEquals('testtesttest', $config->getRepoToken());
         $this->assertEquals('Default Commit Message', $config->getCommitMessage());
