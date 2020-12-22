@@ -13,7 +13,8 @@ class ReportParserFactory
         switch ($reportType) {
             case 'clover':
                 return new CloverReportParser();
-                break;
+            case 'html':
+                return new HtmlReportParser();
             default:
                 throw new InvalidArgumentException('Report type ' . $reportType . ' not found. Supported report types are: clover');
         }
