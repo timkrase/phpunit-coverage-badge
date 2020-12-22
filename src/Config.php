@@ -24,7 +24,7 @@ class Config
         Assertion::string($cloverFilePath);
         $cloverFilePath = __DIR__ . "/../" . $cloverFilePath;
         Assertion::file($cloverFilePath);
-        $this->cloverFilePath = $cloverFilePath;
+        $this->cloverFilePath = realpath($cloverFilePath);
 
         $badgePath = getenv('INPUT_COVERAGE_BADGE_PATH', true);
         Assertion::string($badgePath);

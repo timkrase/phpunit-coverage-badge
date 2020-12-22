@@ -8,6 +8,8 @@ use PHPUnit\Framework\TestCase;
 
 class ConfigTest extends TestCase
 {
+    use ConfigTestTrait;
+
     /**
      * @runInSeparateProcess
      */
@@ -115,12 +117,7 @@ class ConfigTest extends TestCase
      */
     public function testAllValidNoPush(): void
     {
-        $this->addValidClover();
-        $this->addValidBadgePath();
-        $this->addValidRepoToken();
-        $this->addValidCommitMessage();
-        $this->addDefaultCommitEmail();
-        $this->addDefaultCommitName();
+        $this->addAllValidConfigSettings();
         putenv('INPUT_PUSH_BADGE=true');
 
         $config = new Config();
@@ -139,13 +136,7 @@ class ConfigTest extends TestCase
      */
     public function testAllValidWithPush(): void
     {
-        $this->addValidClover();
-        $this->addValidBadgePath();
-        $this->addValidRepoToken();
-        $this->addValidCommitMessage();
-        $this->addDefaultCommitEmail();
-        $this->addDefaultCommitName();
-
+        $this->addAllValidConfigSettings();
         $config = new Config();
 
         $this->assertEquals(realpath(__DIR__ . '/../tests/resources/clover_valid_29.xml'), realpath($config->getCloverFilePath()));
@@ -155,40 +146,5 @@ class ConfigTest extends TestCase
         $this->assertEquals('41898282+github-actions[bot]@users.noreply.github.com', $config->getCommitEmail());
         $this->assertEquals('Github Actions Bot', $config->getCommitName());
         $this->assertEquals(false, $config->getPushBadge());
-    }
-
-    private function addValidClover(): void
-    {
-        putenv('INPUT_CLOVER_REPORT=tests/resources/clover_valid_29.xml');
-    }
-
-    private function addValidBadgePath(): void
-    {
-        putenv('INPUT_COVERAGE_BADGE_PATH=badge.svg');
-    }
-
-    private function addValidRepoToken(): void
-    {
-        putenv('INPUT_REPO_TOKEN=testtesttest');
-    }
-
-    private function addValidCommitMessage(): void
-    {
-        putenv('INPUT_COMMIT_MESSAGE=Default Commit Message');
-    }
-
-    private function addDefaultRepoToken(): void
-    {
-        putenv('INPUT_REPO_TOKEN=' . Config::REPO_TOKEN_DEFAULT);
-    }
-
-    private function addDefaultCommitEmail(): void
-    {
-        putenv('INPUT_COMMIT_EMAIL=41898282+github-actions[bot]@users.noreply.github.com');
-    }
-
-    private function addDefaultCommitName(): void
-    {
-        putenv('INPUT_COMMIT_NAME=Github Actions Bot');
     }
 }

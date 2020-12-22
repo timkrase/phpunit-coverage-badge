@@ -31,5 +31,10 @@
         "psr-4": {
             "PhpUnitCoverageBadge\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "XDEBUG_MODE=coverage vendor/bin/phpunit",
+        "phpcs": "vendor/bin/phpcs --standard=ruleset.xml --extensions=php --tab-width=4 -sp src tests",
+        "psalm": "vendor/bin/psalm"
     }
 }
