@@ -16,7 +16,7 @@ class ReportParserFactory
             case 'html':
                 return new HtmlReportParser();
             default:
-                throw new InvalidArgumentException('Report type ' . $reportType . ' not found. Supported report types are: clover');
+                throw new InvalidArgumentException('Report type ' . $reportType . ' not found. Supported report types are: clover, html');
         }
     }
 }
