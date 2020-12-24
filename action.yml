@@ -36,7 +36,7 @@ inputs:
     required: false
     default: 'clover.xml'
   report_type:
-    description: 'The type of the generated report. Currently supported: clover.'
+    description: 'The type of the generated report. Currently supported: clover, html.'
     required: false
     default: 'clover'
   coverage_badge_path:

@@ -21,6 +21,11 @@ trait ConfigTestTrait
         putenv('INPUT_REPORT=tests/resources/clover_valid_29.xml');
     }
 
+    public function addValidHtml(): void
+    {
+        putenv('INPUT_REPORT=tests/resources/html/index.html');
+    }
+
     public function addValidBadgePath(): void
     {
         putenv('INPUT_COVERAGE_BADGE_PATH=badge.svg');
@@ -49,5 +54,15 @@ trait ConfigTestTrait
     public function addDefaultCommitName(): void
     {
         putenv('INPUT_COMMIT_NAME=Github Actions Bot');
+    }
+
+    public function activatePushBadge(): void
+    {
+        putenv('INPUT_PUSH_BADGE=true');
+    }
+
+    public function addReportTypeHtml(): void
+    {
+        putenv('INPUT_REPORT_TYPE=html');
     }
 }

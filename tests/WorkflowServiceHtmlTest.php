@@ -4,9 +4,9 @@ namespace PhpUnitCoverageBadge;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PhpUnitCoverageBadge\ReportParser\CloverReportParser;
+use PhpUnitCoverageBadge\ReportParser\HtmlReportParser;
 
-class WorkflowServiceTest extends TestCase
+class WorkflowServiceHtmlTest extends TestCase
 {
     use ConfigTestTrait;
 
@@ -15,7 +15,7 @@ class WorkflowServiceTest extends TestCase
 
     public function setUp(): void
     {
-        $cloverReportParser = new CloverReportParser();
+        $cloverReportParser = new HtmlReportParser();
         $badgeGenerator = new BadgeGenerator();
         $this->gitService = $this->createMock(GitService::class);
 
@@ -28,14 +28,16 @@ class WorkflowServiceTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testWithPush(): void
+    public function testWithPushHtml(): void
     {
-        putenv('INPUT_PUSH_BADGE=true');
+        $this->activatePushBadge();
+        $this->addValidHtml();
+
         $this->gitService->expects($this->exactly(1))->method('pushBadge');
 
         $this->workflowService->run();
 
-        $shouldBeBadge = file_get_contents(__DIR__ . '/resources/result_badges/29.svg');
+        $shouldBeBadge = file_get_contents(__DIR__ . '/resources/result_badges/91.svg');
         $isBadge = file_get_contents(__DIR__ . '/resources/badge.svg');
 
         unlink(__DIR__ . '/resources/badge.svg');
@@ -46,18 +48,19 @@ class WorkflowServiceTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testWithoutPush(): void
+    public function testWithoutPushHtml(): void
     {
+        $this->addValidHtml();
+
         $this->gitService->expects($this->exactly(0))->method('pushBadge');
 
         $this->workflowService->run();
 
-        $shouldBeBadge = file_get_contents(__DIR__ . '/resources/result_badges/29.svg');
+        $shouldBeBadge = file_get_contents(__DIR__ . '/resources/result_badges/91.svg');
         $isBadge = file_get_contents(__DIR__ . '/resources/badge.svg');
 
         unlink(__DIR__ . '/resources/badge.svg');
 
         $this->assertEquals($shouldBeBadge, $isBadge);
     }
-
 }
