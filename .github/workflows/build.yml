@@ -41,13 +41,11 @@ jobs:
         run: composer phpcs
 
       - name: Run Unit Tests
-        run: XDEBUG_MODE_COVERAGE=coverage vendor/bin/phpunit --coverage-html html
+        run: XDEBUG_MODE_COVERAGE=coverage vendor/bin/phpunit
 
       - name: Generate test coverage badge
         uses: ./
         with:
-          report: 'html/index.html'
-          report_type: 'html'
           coverage_badge_path: 'badge.svg'
           push_badge: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
