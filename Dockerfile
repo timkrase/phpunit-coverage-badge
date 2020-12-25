@@ -1,6 +1,4 @@
-FROM php:7.4-cli
+FROM ghcr.io/timkrase/phpunit-coverage-badge:v1.0.0
 COPY entrypoint.sh /entrypoint.sh
-RUN apt-get update
-RUN apt-get install -y git
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
