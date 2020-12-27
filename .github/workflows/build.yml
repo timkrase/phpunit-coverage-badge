@@ -51,7 +51,7 @@ jobs:
           key: ${{ runner.os }}-coverage-image
 
       - name: Load docker image
-        if: steps.cache-docker-image.outputs.cache-hit = 'true'
+        if: steps.cache-docker-image.outputs.cache-hit == 'true'
         run: /usr/bin/docker load < tmp/coverageBadge.tar
 
       - name: Generate test coverage badge
