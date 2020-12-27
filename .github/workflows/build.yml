@@ -43,6 +43,10 @@ jobs:
       - name: Run Unit Tests
         run: XDEBUG_MODE_COVERAGE=coverage vendor/bin/phpunit
 
+      - uses: actions/cache@v2
+        with:
+          path: var/lib/docker
+
       - name: Generate test coverage badge
         uses: ./
         with:
