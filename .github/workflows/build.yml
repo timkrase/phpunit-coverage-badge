@@ -47,18 +47,17 @@ jobs:
         id: cache-docker-image
         uses: actions/cache@v2
         with:
-          path: tmp/coverageBadge.tar
-          key: ${{ runner.os }}-coverage-image
+          path: ~/docker-temp/coverageBadge.tar
+          key: ${{ runner.os }}-image
 
       - name: Load docker image
         if: steps.cache-docker-image.outputs.cache-hit == 'true'
-        run: /usr/bin/docker load < tmp/coverageBadge.tar
+        run: /usr/bin/docker load < ~/docker-temp/coverageBadge.tar
 
       - name: Generate test coverage badge
         uses: ./
         with:
           coverage_badge_path: 'badge.svg'
-          push_badge: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Save docker image
