@@ -65,5 +65,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Docker images
-        id: docker-images
+        id: docker-images-2
         run: /usr/bin/docker image ls
