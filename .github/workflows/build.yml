@@ -62,7 +62,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: var/lib/docker
-          key: ${{ runner.os }}-docker-image
+          key: ${{ runner.os }}-docker-images
 
       - name: Docker images
         id: docker-images-2
