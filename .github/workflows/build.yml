@@ -46,6 +46,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: var/lib/docker
+          key: ${{ runner.os }}-docker-image
 
       - name: Generate test coverage badge
         uses: ./
