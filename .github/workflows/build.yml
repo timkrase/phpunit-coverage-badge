@@ -47,5 +47,5 @@ jobs:
         uses: ./
         with:
           coverage_badge_path: 'badge.svg'
-          push_badge: 'true'
+          push_badge: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
