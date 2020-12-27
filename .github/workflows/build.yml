@@ -43,10 +43,16 @@ jobs:
       - name: Run Unit Tests
         run: XDEBUG_MODE_COVERAGE=coverage vendor/bin/phpunit
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
-        continue-on-error: true
+      - name: Cache docker container
+        id: cache-docker-image
+        uses: actions/cache@v2
         with:
-          concurrency: 20
+          path: tmp/coverageBadge.tar
+          key: ${{ runner.os }}-coverage-image
+
+      - name: Load docker image
+        if: steps.cache-docker-image.outputs.cache-hit != 'true'
+        run: /usr/bin/docker load < tmp/coverageBadge.tar
 
       - name: Generate test coverage badge
         uses: ./
@@ -54,3 +60,6 @@ jobs:
           coverage_badge_path: 'badge.svg'
           push_badge: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Save docker image
+        run: /usr/bin/docker save ghcr.io/timkrase/phpunit-coverage-badge > tmp/coverageBadge.tar
