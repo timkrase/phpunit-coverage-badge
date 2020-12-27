@@ -63,3 +63,7 @@ jobs:
           coverage_badge_path: 'badge.svg'
           push_badge: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Docker images
+        id: docker-images
+        run: /usr/bin/docker image ls
