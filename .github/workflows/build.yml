@@ -11,15 +11,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-
-      - name: Docker images
-        id: docker-images
-        run: /usr/bin/docker image ls
-
-      - name: Docker info
-        id: docker-info
-        run: /usr/bin/docker info
-
       - name: Setup PHP
         uses: shivammathur/setup-php@2.9.0
         with:
@@ -52,18 +43,16 @@ jobs:
       - name: Run Unit Tests
         run: XDEBUG_MODE_COVERAGE=coverage vendor/bin/phpunit
 
+      # In this step, this action saves a list of existing images,
+      # the cache is created without them in the post run.
+      # It also restores the cache if it exists.
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        # Ignore the failure of a step and avoid terminating the job.
+        continue-on-error: true
+
       - name: Generate test coverage badge
         uses: ./
         with:
           coverage_badge_path: 'badge.svg'
           push_badge: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/cache@v2
-        with:
-          path: /var/lib/docker
-          key: ${{ runner.os }}-image
-
-      - name: Docker images
-        id: docker-images-2
-        run: /usr/bin/docker image ls
