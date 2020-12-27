@@ -62,4 +62,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Save docker image
-        run: mkdir -p ~/docker-temp/ && /usr/bin/docker save ghcr.io/timkrase/phpunit-coverage-badge > tmp/coverageBadge.tar
+        run: mkdir -p ~/docker-temp/ && /usr/bin/docker save ghcr.io/timkrase/phpunit-coverage-badge > ~/docker-temp/coverageBadge.tar
