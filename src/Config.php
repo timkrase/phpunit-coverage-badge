@@ -22,12 +22,18 @@ class Config
     {
         $reportFilePath = getenv('INPUT_REPORT', true);
         Assertion::string($reportFilePath);
+        /**
+         * @psalm-suppress PossiblyFalseOperand
+         */
         $reportFilePath = getenv('GITHUB_WORKSPACE') . $reportFilePath;
         Assertion::file($reportFilePath);
         $this->reportFilePath = realpath($reportFilePath);
 
         $badgePath = getenv('INPUT_COVERAGE_BADGE_PATH', true);
         Assertion::string($badgePath);
+        /**
+         * @psalm-suppress PossiblyFalseOperand
+         */
         $badgePath = getenv('GITHUB_WORKSPACE') . $badgePath;
         $this->badgePath = $badgePath;
 
