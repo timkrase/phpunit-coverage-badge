@@ -22,13 +22,13 @@ class Config
     {
         $reportFilePath = getenv('INPUT_REPORT', true);
         Assertion::string($reportFilePath);
-        $reportFilePath = __DIR__ . "/../" . $reportFilePath;
+        $reportFilePath = getenv('GITHUB_WORKSPACE') . $reportFilePath;
         Assertion::file($reportFilePath);
         $this->reportFilePath = realpath($reportFilePath);
 
         $badgePath = getenv('INPUT_COVERAGE_BADGE_PATH', true);
         Assertion::string($badgePath);
-        $badgePath = __DIR__ . "/../" . $badgePath;
+        $badgePath = getenv('GITHUB_WORKSPACE') . $badgePath;
         $this->badgePath = $badgePath;
 
         $pushBadge = filter_var(getenv('INPUT_PUSH_BADGE', true), FILTER_VALIDATE_BOOLEAN);
