@@ -4,6 +4,6 @@ RUN apt-get update
 RUN apt-get install -y git libicu-dev && docker-php-ext-configure intl && docker-php-ext-install intl
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY . /github/workflow/
-RUN cd /github/workflow && composer install
+RUN cd /github/workflow && ls -l && composer install
 RUN chmod +x /github/workflow/entrypoint.sh
 ENTRYPOINT ["/github/workflow/entrypoint.sh"]
