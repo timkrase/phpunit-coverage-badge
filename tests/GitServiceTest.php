@@ -25,5 +25,6 @@ class GitServiceTest extends TestCase
 
         $gitService->pushBadge('${INPUT_COMMIT_EMAIL}', '${INPUT_COMMIT_NAME}', '${INPUT_COMMIT_MESSAGE}', '${INPUT_REPO_TOKEN}');
         */
+        $this->assertEquals(1, 1);
     }
 }
