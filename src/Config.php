@@ -25,7 +25,7 @@ class Config
         /**
          * @psalm-suppress PossiblyFalseOperand
          */
-        $reportFilePath = getenv('GITHUB_WORKSPACE') . $reportFilePath;
+        $reportFilePath = getenv('GITHUB_WORKSPACE') . '/' . $reportFilePath;
         Assertion::file($reportFilePath);
         $this->reportFilePath = realpath($reportFilePath);
 
@@ -34,7 +34,7 @@ class Config
         /**
          * @psalm-suppress PossiblyFalseOperand
          */
-        $badgePath = getenv('GITHUB_WORKSPACE') . $badgePath;
+        $badgePath = getenv('GITHUB_WORKSPACE') . '/' . $badgePath;
         $this->badgePath = $badgePath;
 
         $pushBadge = filter_var(getenv('INPUT_PUSH_BADGE', true), FILTER_VALIDATE_BOOLEAN);
