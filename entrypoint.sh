@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-cd /github/workflow
+cd /srv
 PHP=`which php`
 $PHP src/entry.php
