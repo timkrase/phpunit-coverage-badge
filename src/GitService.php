@@ -6,6 +6,7 @@ class GitService
 {
     public function pushBadge(string $email, string $name, string $message, string $repoToken): void
     {
+        exec('cd ' . getenv('GITHUB_WORKSPACE'));
         $this->addFile('${INPUT_COVERAGE_BADGE_PATH}');
         $this->addFile('${INPUT_REPORT}');
 
