@@ -35,8 +35,12 @@ class CloverReportParser implements ReportParserInterface
      * Inspired by:
      * https://ocramius.github.io/blog/automated-code-coverage-check-for-github-pull-requests-with-travis/
      *
+     * @param string $coverageReportPath
+     *
      * @return int[]
      * @throws AssertionFailedException
+     *
+     * @psalm-suppress UndefinedPropertyFetch
      */
     private function getReportMetrics(string $coverageReportPath): array
     {
@@ -48,7 +52,6 @@ class CloverReportParser implements ReportParserInterface
         Assertion::notNull($reportMetrics, self::NO_METRICS_IN_CLOVER_FILE_EXCEPTION);
 
         $metricsAttributes = $reportMetrics->attributes();
-        Assertion::notNull($metricsAttributes);
 
         Assertion::notNull($metricsAttributes->coveredelements);
         Assertion::notNull($metricsAttributes->elements);
