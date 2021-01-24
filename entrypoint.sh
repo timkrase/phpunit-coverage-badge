@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-ls- l src
-ls -l
+cd /github/workflow
 PHP=`which php`
 $PHP src/entry.php
