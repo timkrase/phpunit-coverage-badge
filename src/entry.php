@@ -9,7 +9,7 @@ $containerBuilder->addDefinitions(__DIR__ . '/DependencyInjection/config.php');
 $container = $containerBuilder->build();
 
 /**
- * @psalm-suppress ForbiddenCode
+ * @psalm-suppress PossiblyFalseOperand
  */
 exec('ls -l ' . getenv('GITHUB_WORKSPACE'));
 
