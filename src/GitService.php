@@ -10,7 +10,8 @@ class GitService
          * @psalm-suppress PossiblyFalseOperand
          */
         exec('cd ' . getenv('GITHUB_WORKSPACE'));
-        exec('ls');
+        exec('ls -l', $output);
+        var_dump($output);
         $this->addFile('${INPUT_COVERAGE_BADGE_PATH}');
         $this->addFile('${INPUT_REPORT}');
 
