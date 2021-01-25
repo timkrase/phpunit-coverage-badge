@@ -11,7 +11,7 @@ $container = $containerBuilder->build();
 /**
  * @psalm-suppress ForbiddenCode
  */
-var_dump(getenv());
+exec('ls -l ' . getenv('GITHUB_WORKSPACE'));
 
 /**
  * @var WorkflowService $workflowService 
