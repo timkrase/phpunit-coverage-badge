@@ -9,13 +9,15 @@ class GitService
         /**
          * @psalm-suppress PossiblyFalseOperand
          */
-        exec('cd ' . getenv('GITHUB_WORKSPACE'));
+        exec('cd ' . getenv('RUNNER_WORKSPACE'));
         exec('ls -l', $output);
 
         /**
          * @psalm-suppress ForbiddenCode
+         * @psalm-suppress PossiblyFalseOperand
          */
-        var_dump($output);
+        var_dump(getenv());
+
         $this->addFile('${INPUT_COVERAGE_BADGE_PATH}');
         $this->addFile('${INPUT_REPORT}');
 
