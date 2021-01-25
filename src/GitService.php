@@ -11,6 +11,10 @@ class GitService
          */
         exec('cd ' . getenv('GITHUB_WORKSPACE'));
         exec('ls -l', $output);
+
+        /**
+         * @psalm-suppress ForbiddenCode
+         */
         var_dump($output);
         $this->addFile('${INPUT_COVERAGE_BADGE_PATH}');
         $this->addFile('${INPUT_REPORT}');
