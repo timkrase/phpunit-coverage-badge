@@ -9,14 +9,14 @@ class GitService
         /**
          * @psalm-suppress PossiblyFalseOperand
          */
-        exec('cd ' . getenv('RUNNER_WORKSPACE'));
-        exec('ls -l /home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge', $output);
+        exec('cd ' . getenv('GITHUB_WORKSPACE'));
+        exec('ls -l /github/workspace', $output);
 
         /**
          * @psalm-suppress ForbiddenCode
          * @psalm-suppress PossiblyFalseOperand
          */
-        var_dump(getenv());
+        var_dump($output);
 
         $this->addFile('${INPUT_COVERAGE_BADGE_PATH}');
         $this->addFile('${INPUT_REPORT}');
