@@ -8,6 +8,8 @@ $containerBuilder = new DI\ContainerBuilder();
 $containerBuilder->addDefinitions(__DIR__ . '/DependencyInjection/config.php');
 $container = $containerBuilder->build();
 
+var_dump(getenv());
+
 /**
  * @var WorkflowService $workflowService 
 */
