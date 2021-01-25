@@ -8,6 +8,9 @@ $containerBuilder = new DI\ContainerBuilder();
 $containerBuilder->addDefinitions(__DIR__ . '/DependencyInjection/config.php');
 $container = $containerBuilder->build();
 
+/**
+ * @psalm-suppress ForbiddenCode
+ */
 var_dump(getenv());
 
 /**
