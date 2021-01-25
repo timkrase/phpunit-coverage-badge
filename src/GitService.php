@@ -11,12 +11,18 @@ class GitService
          */
         exec('cd ' . getenv('GITHUB_WORKSPACE'));
         exec('ls -l /github/workspace', $output);
+        exec('ls -l', $output2);
 
         /**
          * @psalm-suppress ForbiddenCode
          * @psalm-suppress PossiblyFalseOperand
          */
         var_dump($output);
+        /**
+         * @psalm-suppress ForbiddenCode
+         * @psalm-suppress PossiblyFalseOperand
+         */
+        var_dump($output2);
 
         $this->addFile('${INPUT_COVERAGE_BADGE_PATH}');
         $this->addFile('${INPUT_REPORT}');
