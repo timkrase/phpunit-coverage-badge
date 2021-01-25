@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611602828">
-  <project timestamp="1611602828">
+<coverage generated="1611603635">
+  <project timestamp="1611603635">
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/BadgeGenerator.php">
       <class name="PhpUnitCoverageBadge\BadgeGenerator" namespace="global">
         <metrics complexity="7" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
@@ -94,34 +94,34 @@
       <line num="7" type="method" name="pushBadge" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="12" type="stmt" count="0"/>
       <line num="13" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
       <line num="19" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
       <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
       <line num="25" type="stmt" count="0"/>
       <line num="27" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <line num="30" type="method" name="addFile" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="35" type="method" name="commit" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="38" type="stmt" count="0"/>
-      <line num="40" type="method" name="push" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="45" type="method" name="setUserEmail" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="47" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="50" type="method" name="setUserName" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="52" type="stmt" count="0"/>
-      <line num="53" type="stmt" count="0"/>
-      <line num="55" type="method" name="setConfig" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="57" type="stmt" count="0"/>
-      <line num="58" type="stmt" count="0"/>
-      <line num="59" type="stmt" count="4"/>
-      <metrics loc="58" ncloc="52" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="0" elements="29" coveredelements="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="32" type="method" name="addFile" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="37" type="method" name="commit" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="42" type="method" name="push" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="47" type="method" name="setUserEmail" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="52" type="method" name="setUserName" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="57" type="method" name="setConfig" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="59" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="61" type="stmt" count="4"/>
+      <metrics loc="60" ncloc="53" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="0" elements="29" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/ReportParser/CloverReportParser.php">
       <class name="PhpUnitCoverageBadge\ReportParser\CloverReportParser" namespace="global">
@@ -218,6 +218,6 @@
       <line num="43" type="stmt" count="4"/>
       <metrics loc="42" ncloc="42" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="17" coveredelements="17"/>
     </file>
-    <metrics files="8" loc="408" ncloc="377" classes="7" methods="27" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="137" coveredstatements="115" elements="164" coveredelements="135"/>
+    <metrics files="8" loc="410" ncloc="378" classes="7" methods="27" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="137" coveredstatements="115" elements="164" coveredelements="135"/>
   </project>
 </coverage>
