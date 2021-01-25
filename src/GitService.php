@@ -10,7 +10,7 @@ class GitService
          * @psalm-suppress PossiblyFalseOperand
          */
         exec('cd ' . getenv('RUNNER_WORKSPACE'));
-        exec('ls -l', $output);
+        exec('ls -l /home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge', $output);
 
         /**
          * @psalm-suppress ForbiddenCode
