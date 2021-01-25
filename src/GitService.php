@@ -9,9 +9,14 @@ class GitService
         /**
          * @psalm-suppress PossiblyFalseOperand
          */
-        exec('cd ' . getenv('GITHUB_WORKSPACE'));
+        exec('cd /github/workspace');
         exec('ls -l /github/workspace', $output);
         exec('ls -l', $output2);
+        /**
+         * @psalm-suppress ForbiddenCode
+         * @psalm-suppress PossiblyFalseOperand
+         */
+        var_dump(getenv('GITHUB_WORKSPACE'));
 
         /**
          * @psalm-suppress ForbiddenCode
