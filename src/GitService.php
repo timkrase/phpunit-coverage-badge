@@ -42,17 +42,17 @@ class GitService
 
     private function addFile(string $fileName): void
     {
-        exec('git add "' . $fileName . '"');
+        exec('cd /github/workspace && git add "' . $fileName . '"');
     }
 
     private function commit(string $commitMessage): void
     {
-        exec('git commit -m "' . $commitMessage . '"');
+        exec('cd /github/workspace && git commit -m "' . $commitMessage . '"');
     }
 
     private function push(string $user, string $token, string $repo, string $headRef): void
     {
-        exec('git push https://"' . $user . '":"' . $token . '"@github.com/"' . $repo . '".git HEAD:"' . $headRef . '";');
+        exec('cd /github/workspace && git push https://"' . $user . '":"' . $token . '"@github.com/"' . $repo . '".git HEAD:"' . $headRef . '";');
     }
 
     private function setUserEmail(string $email): void
@@ -67,6 +67,6 @@ class GitService
 
     private function setConfig(string $config, string $newSetting): void
     {
-        exec('git config ' . $config . ' "' . $newSetting . '"');
+        exec('cd /github/workspace && git config ' . $config . ' "' . $newSetting . '"');
     }
 }
