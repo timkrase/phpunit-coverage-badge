@@ -14,6 +14,7 @@ trait ConfigTestTrait
         $this->addValidCommitMessage();
         $this->addDefaultCommitEmail();
         $this->addDefaultCommitName();
+        $this->addGithubWorkspace();
     }
 
     public function addValidClover(): void
@@ -64,5 +65,10 @@ trait ConfigTestTrait
     public function addReportTypeHtml(): void
     {
         putenv('INPUT_REPORT_TYPE=html');
+    }
+
+    public function addGithubWorkspace(): void
+    {
+        putenv("GITHUB_WORKSPACE=.");
     }
 }

@@ -4,50 +4,57 @@ namespace PhpUnitCoverageBadge;
 
 class GitService
 {
-    public function pushBadge(string $email, string $name, string $message, string $repoToken): void
-    {
-        /**
-         * @psalm-suppress PossiblyFalseOperand
-         */
-        exec('cd ' . getenv('GITHUB_WORKSPACE'));
-        $this->addFile('${INPUT_COVERAGE_BADGE_PATH}');
-        $this->addFile('${INPUT_REPORT}');
+    public function pushBadge(
+        string $email,
+        string $name,
+        string $message,
+        string $repoToken,
+        string $githubWorkspace
+    ): void {
+        $this->addFile('${INPUT_COVERAGE_BADGE_PATH}', $githubWorkspace);
+        $this->addFile('${INPUT_REPORT}', $githubWorkspace);
 
-        $this->setUserEmail($email);
-        $this->setUserName($name);
+        $this->setUserEmail($email, $githubWorkspace);
+        $this->setUserName($name, $githubWorkspace);
 
-        $this->commit($message);
+        $this->commit($message, $githubWorkspace);
 
-        $this->push('${GITHUB_ACTOR}', $repoToken, '${GITHUB_REPOSITORY}', '${GITHUB_REF#refs/heads/}');
+        $this->push(
+            '${GITHUB_ACTOR}',
+            $repoToken,
+            '${GITHUB_REPOSITORY}',
+            '${GITHUB_REF#refs/heads/}',
+            $githubWorkspace
+        );
     }
 
-    private function addFile(string $fileName): void
+    private function addFile(string $fileName, string $githubWorkspace): void
     {
-        exec('git add "' . $fileName . '"');
+        exec('cd ' . $githubWorkspace . ' && git add "' . $fileName . '"');
     }
 
-    private function commit(string $commitMessage): void
+    private function commit(string $commitMessage, string $githubWorkspace): void
     {
-        exec('git commit -m "' . $commitMessage . '"');
+        exec('cd ' . $githubWorkspace . ' /github/workspace && git commit -m "' . $commitMessage . '"');
     }
 
-    private function push(string $user, string $token, string $repo, string $headRef): void
+    private function push(string $user, string $token, string $repo, string $headRef, string $githubWorkspace): void
     {
-        exec('git push https://"' . $user . '":"' . $token . '"@github.com/"' . $repo . '".git HEAD:"' . $headRef . '";');
+        exec('cd ' . $githubWorkspace . ' && git push https://"' . $user . '":"' . $token . '"@github.com/"' . $repo . '".git HEAD:"' . $headRef . '";');
     }
 
-    private function setUserEmail(string $email): void
+    private function setUserEmail(string $email, string $githubWorkspace): void
     {
-        $this->setConfig('user.email', $email);
+        $this->setConfig('user.email', $email, $githubWorkspace);
     }
 
-    private function setUserName(string $name): void
+    private function setUserName(string $name, string $githubWorkspace): void
     {
-        $this->setConfig('user.name', $name);
+        $this->setConfig('user.name', $name, $githubWorkspace);
     }
 
-    private function setConfig(string $config, string $newSetting): void
+    private function setConfig(string $config, string $newSetting, string $githubWorkspace): void
     {
-        exec('git config ' . $config . ' "' . $newSetting . '"');
+        exec('cd ' . $githubWorkspace . ' && git config ' . $config . ' "' . $newSetting . '"');
     }
 }
