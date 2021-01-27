@@ -65,7 +65,7 @@ inputs:
     default: 'Github Actions Bot'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/timkrase/phpunit-coverage-badge:v1.0.0'
   args:
     - ${{ inputs.clover-report }}
     - ${{ inputs.coverage-badge-path }}
