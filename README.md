@@ -14,6 +14,14 @@ The template for the svg badge was created using [Method Draw](http://github.com
 # Configuration
 This action has no required inputs. It defaults to using a clover report saved in the root directory (clover.xml). 
 
+For the action to be able to parse the clover report and push it to the repository, you need to run the [checkout action](https://github.com/actions/checkout) before running this action.
+Basic configuration for the checkout action works like this:
+```
+      - name: Checkout code
+        uses: actions/checkout@v2
+```
+IMPORTANT: v1.0.0 currently has NO support for a custom checkout path.
+
 You can automatically generate a clover report file with every PHPUnit run by adding the following configuration to your phpunit.xml file:
 ```
     <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
