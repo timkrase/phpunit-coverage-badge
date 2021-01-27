@@ -17,15 +17,18 @@ class Config
     private string $commitMessage;
     private string $commitEmail;
     private string $commitName;
+    private string $githubWorkspace;
 
     public function __construct()
     {
+        $githubWorkspace = getenv('GITHUB_WORKSPACE', true);
+        Assertion::string($githubWorkspace);
+        $this->githubWorkspace = $githubWorkspace;
+
         $reportFilePath = getenv('INPUT_REPORT', true);
         Assertion::string($reportFilePath);
-        /**
-         * @psalm-suppress PossiblyFalseOperand
-         */
-        $reportFilePath = getenv('GITHUB_WORKSPACE') . '/' . $reportFilePath;
+
+        $reportFilePath = $githubWorkspace . '/' . $reportFilePath;
         Assertion::file($reportFilePath);
         $this->reportFilePath = realpath($reportFilePath);
 
@@ -34,7 +37,7 @@ class Config
         /**
          * @psalm-suppress PossiblyFalseOperand
          */
-        $badgePath = getenv('GITHUB_WORKSPACE') . '/' . $badgePath;
+        $badgePath =  $githubWorkspace . '/' . $badgePath;
         $this->badgePath = $badgePath;
 
         $pushBadge = filter_var(getenv('INPUT_PUSH_BADGE', true), FILTER_VALIDATE_BOOLEAN);
@@ -109,5 +112,10 @@ class Config
     public function getCommitName(): string
     {
         return $this->commitName;
+    }
+
+    public function getGithubWorkspace(): string
+    {
+        return $this->githubWorkspace;
     }
 }

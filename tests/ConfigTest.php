@@ -26,6 +26,8 @@ class ConfigTest extends TestCase
      */
     public function testWrongCloverFile(): void
     {
+        $this->addGithubWorkspace();
+
         putenv('INPUT_REPORT=tests/resources/notexistingcloverfile.xml');
 
         $this->expectException(InvalidArgumentException::class);
@@ -58,6 +60,7 @@ class ConfigTest extends TestCase
         $this->addValidCommitMessage();
         $this->addDefaultCommitEmail();
         $this->addDefaultCommitName();
+        $this->addGithubWorkspace();
 
         $config = new Config();
 
@@ -75,6 +78,7 @@ class ConfigTest extends TestCase
         $this->addDefaultRepoToken();
         $this->addDefaultCommitEmail();
         $this->addDefaultCommitName();
+        $this->addGithubWorkspace();
 
         putenv('INPUT_PUSH_BADGE=true');
 

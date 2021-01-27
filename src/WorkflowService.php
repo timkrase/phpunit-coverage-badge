@@ -37,7 +37,8 @@ class WorkflowService
             $config->getCommitEmail(),
             $config->getCommitName(),
             $config->getCommitMessage(),
-            $config->getRepoToken()
+            $config->getRepoToken(),
+            $config->getGithubWorkspace()
         );
     }
 }
