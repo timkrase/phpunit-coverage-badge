@@ -14,13 +14,15 @@ class BadgeGenerator
 
     public function generateBadge(float $codeCoverage, string $badgePath): void
     {
-        $template = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '../template.svg');
-
         $formattedCoverage = $this->formatCoverageNumber($codeCoverage);
         $color = $this->matchCoverageColor($codeCoverage);
-
-        $badge = str_replace('$cov$', $formattedCoverage, $template);
-        $badge = str_replace('$color$', $color, $badge);
+        
+        $url = sprintf('https://img.shields.io/badge/Coverage-%s-%s',rawurlencode($formattedCoverage),rawurlencode($color));
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        $result=curl_exec($ch);
 
         $this->saveBadge($badge, $badgePath);
     }
