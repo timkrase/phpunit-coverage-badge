@@ -41,6 +41,17 @@ Please note: The parsed report file will also be committed and pushed if it chan
 If you do not enable **push_badge** you'll need extra steps in your workflow to commit and push the file into the repository.
 Please have a look at the inputs for all configuration options.
 
+# Troubleshooting
+
+## Commit by action triggers another action run
+As reported by [MikeDevresse](https://github.com/MikeDevresse) in [this issue](https://github.com/timkrase/phpunit-coverage-badge/issues/7), it might be possible that the commit by the Github action triggers a subsequent action run. Adding a specific tag to the actions github action and then checking for the existance of this tag can be used as a workaround (example is a slightly modified version of the one given by MikeDevresse in the issue):
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci]')"
+```
+
 # Inputs
 
 Paths are always relative to the root of your repository.
