@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1648495904">
-  <project timestamp="1648495904">
+<coverage generated="1674763184">
+  <project timestamp="1674763184">
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/BadgeGenerator.php">
       <class name="PhpUnitCoverageBadge\BadgeGenerator" namespace="global">
         <metrics complexity="7" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
@@ -183,17 +183,16 @@
     </file>
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/ReportParser/ReportParserFactory.php">
       <class name="PhpUnitCoverageBadge\ReportParser\ReportParserFactory" namespace="global">
-        <metrics complexity="4" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+        <metrics complexity="4" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
       </class>
       <line num="11" type="method" name="createReportParser" visibility="public" complexity="4" crap="4" count="3"/>
-      <line num="13" type="stmt" count="3"/>
       <line num="14" type="stmt" count="3"/>
       <line num="15" type="stmt" count="1"/>
       <line num="16" type="stmt" count="2"/>
       <line num="17" type="stmt" count="1"/>
       <line num="19" type="stmt" count="1"/>
       <line num="22" type="stmt" count="1"/>
-      <metrics loc="21" ncloc="21" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+      <metrics loc="21" ncloc="21" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
     </file>
     <file name="/home/runner/work/phpunit-coverage-badge/phpunit-coverage-badge/src/ReportParser/ReportParserInterface.php">
       <line num="11" type="stmt" count="1"/>
@@ -224,6 +223,6 @@
       <line num="44" type="stmt" count="4"/>
       <metrics loc="43" ncloc="43" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="18" coveredelements="18"/>
     </file>
-    <metrics files="8" loc="418" ncloc="396" classes="7" methods="28" coveredmethods="21" conditionals="0" coveredconditionals="0" statements="142" coveredstatements="120" elements="170" coveredelements="141"/>
+    <metrics files="8" loc="418" ncloc="396" classes="7" methods="28" coveredmethods="21" conditionals="0" coveredconditionals="0" statements="141" coveredstatements="119" elements="169" coveredelements="140"/>
   </project>
 </coverage>
