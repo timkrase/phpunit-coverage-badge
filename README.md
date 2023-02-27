@@ -41,6 +41,28 @@ Please note: The parsed report file will also be committed and pushed if it chan
 If you do not enable **push_badge** you'll need extra steps in your workflow to commit and push the file into the repository.
 Please have a look at the inputs for all configuration options.
 
+# Alternate configuration
+
+This alternate configuration commits the output badge to a branch which has the advantage not to commit into the master/main branch which avoid the need to constantly git pull the latest changes.
+
+```yml
+      - name: Make code coverage badge
+        uses: timkrase/phpunit-coverage-badge@v1.2.1
+        with:
+          coverage_badge_path: output/coverage.svg
+          # push badge later on
+          push_badge: false
+
+      - name: Git push to image-data branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./output
+          publish_branch: image-data
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+```
+
 # Troubleshooting
 
 ## Commit by action triggers another action run
