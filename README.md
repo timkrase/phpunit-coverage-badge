@@ -35,7 +35,8 @@ You can automatically generate a clover report file with every PHPUnit run by ad
 ```
 
 The default configuration does **NOT** push the badge back into the repository. 
-Setting the input **push_badge** in your workflow to true will enable the commit and push process and the badge will be pushed into the repository after it's been generated.
+Setting the input **push_badge** in your workflow to true will enable the commit and push process and the badge will be pushed into the repository after it's been generated. In addition, pushing the badge requires you to update your project settings under `Code and automation` > `Actions` > `General` > `Workflow permissions` to `Read and write permissions`.
+
 Please note: The parsed report file will also be committed and pushed if it changes during the workflow.
 
 If you do not enable **push_badge** you'll need extra steps in your workflow to commit and push the file into the repository.
