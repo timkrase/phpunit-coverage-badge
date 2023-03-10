@@ -34,13 +34,46 @@ You can automatically generate a clover report file with every PHPUnit run by ad
     </coverage>
 ```
 
-The default configuration does **NOT** push the badge back into the repository. 
-Setting the input **push_badge** in your workflow to true will enable the commit and push process and the badge will be pushed into the repository after it's been generated. In addition, pushing the badge requires you to update your project settings under `Code and automation` > `Actions` > `General` > `Workflow permissions` to `Read and write permissions`.
+# Recommended configuration
 
-Please note: The parsed report file will also be committed and pushed if it changes during the workflow.
+This configuration commits the output badge to branch `image-data`. As a consequence, this avoids the list of issues with the alternate configuration (see below), namely:
 
-If you do not enable **push_badge** you'll need extra steps in your workflow to commit and push the file into the repository.
-Please have a look at the inputs for all configuration options.
+- bot commiting to the master branch
+- constant need to git pull before you can push your latest changes
+- phpunit report and badge inside your repository
+
+```yml
+      - name: Make code coverage badge
+        uses: timkrase/phpunit-coverage-badge@v1.2.1
+        with:
+          coverage_badge_path: output/coverage.svg
+          push_badge: false
+
+      - name: Git push to image-data branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./output
+          publish_branch: image-data
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+```
+
+In addition, pushing the badge requires you to update your project settings under `Code and automation` > `Actions` > `General` > `Workflow permissions` to `Read and write permissions`. Please note that a separate action `peaceiris/actions-gh-pages` is used to push the result.
+
+# Alternate configuration
+
+Setting the input **push_badge** in your workflow to true will enable the commit and push process and the badge will be pushed into the repository after it's been generated. Please note: The parsed report file will also be committed and pushed if it changes during the workflow.
+
+```yml
+      - name: Make code coverage badge
+        uses: timkrase/phpunit-coverage-badge@v1.2.1
+        with:
+          coverage_badge_path: output/coverage.svg
+          push_badge: true
+```
+
+Please have a look at the inputs for all configuration options in `actions.yml`.
 
 # Troubleshooting
 
