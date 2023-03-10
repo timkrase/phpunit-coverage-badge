@@ -34,9 +34,9 @@ You can automatically generate a clover report file with every PHPUnit run by ad
     </coverage>
 ```
 
-# Default configuration
+# Recommended configuration
 
-The default configuration commits the output badge to branch `image-data`. As a consequence, this avoids the list of issues with the alternate configuration (see below), namely:
+This configuration commits the output badge to branch `image-data`. As a consequence, this avoids the list of issues with the alternate configuration (see below), namely:
 
 - bot commiting to the master branch
 - constant need to git pull before you can push your latest changes
@@ -59,7 +59,7 @@ The default configuration commits the output badge to branch `image-data`. As a 
           user_email: 'github-actions[bot]@users.noreply.github.com'
 ```
 
-In addition, pushing the badge requires you to update your project settings under `Code and automation` > `Actions` > `General` > `Workflow permissions` to `Read and write permissions`.
+In addition, pushing the badge requires you to update your project settings under `Code and automation` > `Actions` > `General` > `Workflow permissions` to `Read and write permissions`. Please note that a separate action `peaceiris/actions-gh-pages` is used to push the result.
 
 # Alternate configuration
 
