@@ -23,15 +23,17 @@ Basic configuration for the checkout action works like this:
 IMPORTANT: v1.0.0 currently has NO support for a custom checkout path.
 
 You can automatically generate a clover report file with every PHPUnit run by adding the following configuration to your phpunit.xml file:
-```
-    <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
-        <report>
-            <clover outputFile="clover.xml" />
-        </report>
-    </coverage>
+```xml
+<coverage>
+    <report>
+        <clover outputFile="clover.xml" />
+    </report>
+</coverage>
+<source>
+    <include>
+        <directory suffix=".php">src</directory>
+    </include>
+</source>
 ```
 
 # Recommended configuration
